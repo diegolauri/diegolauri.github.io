@@ -3,11 +3,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=portfolio-v2.html">
-  <title>Diego Lauri | Professional Portfolio</title>
-  <script>location.replace('portfolio-v2.html');</script>
+  <meta name="description" content="Diego Lauri — bilingual professional portfolio.">
+  <title>Diego Lauri | Portfolio</title>
+  <style>
+    :root { --ink:#132238; --muted:#5d6b7d; --paper:#f6f8fb; --panel:#fff; --line:#dce3ec; --accent:#1769aa; --accent-dark:#104d80; --radius:18px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.55; }
+    a { color:inherit; }
+    .wrap { width:min(1440px, calc(100% - 48px)); margin:auto; }
+    header { background:linear-gradient(135deg,#10243d,#1769aa); color:#fff; padding:clamp(28px,5vw,70px) 0; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { font-size:clamp(1.15rem,2vw,1.45rem); font-weight:800; letter-spacing:.02em; text-decoration:none; }
+    .nav a:not(.brand) { color:#dcecff; text-decoration:none; font-size:.95rem; }
+    .hero { max-width:930px; padding:clamp(48px,8vw,110px) 0 clamp(28px,5vw,60px); }
+    .eyebrow { margin:0 0 12px; color:#b9ddff; font-size:.84rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:0; max-width:900px; font-size:clamp(2.7rem,7vw,6.4rem); line-height:.98; letter-spacing:-.055em; }
+    .lead { max-width:760px; margin:25px 0 0; color:#e3effa; font-size:clamp(1.1rem,2.1vw,1.48rem); }
+    .socials { display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
+    .socials a { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 15px; border:1px solid rgba(255,255,255,.55); border-radius:999px; color:#fff; font-size:.94rem; font-weight:700; text-decoration:none; transition:.2s ease; }
+    .socials a:hover, .socials a:focus-visible { background:#fff; color:var(--accent-dark); outline:none; }
+    main { padding:clamp(34px,6vw,82px) 0; }
+    section { margin-bottom:clamp(48px,8vw,102px); }
+    h2 { margin:0 0 14px; font-size:clamp(1.8rem,3.6vw,3rem); letter-spacing:-.035em; line-height:1.08; }
+    .intro { max-width:880px; color:var(--muted); font-size:clamp(1.02rem,1.6vw,1.2rem); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:28px; }
+    .card { min-height:180px; padding:25px; background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 8px 24px rgba(18,38,63,.045); }
+    .number { color:var(--accent); font-size:.85rem; font-weight:800; letter-spacing:.1em; }
+    h3 { margin:13px 0 8px; font-size:1.22rem; line-height:1.2; }
+    .card p { margin:0; color:var(--muted); font-size:.97rem; }
+    .notice { padding:25px 28px; border-left:5px solid var(--accent); background:#eaf4fd; border-radius:0 var(--radius) var(--radius) 0; color:#24415d; }
+    .notice strong { color:var(--ink); }
+    .contact { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; padding:clamp(28px,5vw,56px); color:#fff; background:var(--ink); border-radius:var(--radius); }
+    .contact h2 { max-width:650px; }
+    .contact p { max-width:680px; margin:14px 0 0; color:#cfdae6; }
+    .button { display:inline-flex; flex:0 0 auto; justify-content:center; align-items:center; min-height:48px; padding:12px 18px; border-radius:10px; background:#fff; color:var(--ink); font-weight:800; text-decoration:none; }
+    footer { padding:28px 0 42px; color:var(--muted); font-size:.92rem; }
+    @media (max-width:850px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:620px) { .wrap { width:min(100% - 32px,1440px); } .nav { align-items:flex-start; flex-direction:column; } .grid { grid-template-columns:1fr; } .contact { align-items:flex-start; flex-direction:column; } }
+  </style>
 </head>
 <body>
-  <p>Opening <a href="portfolio-v2.html">Diego Lauri's professional portfolio</a>…</p>
+  <header>
+    <div class="wrap">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top">DL / Diego Lauri</a>
+        <a href="#portfolio">Portfolio</a>
+      </nav>
+      <div class="hero" id="top">
+        <p class="eyebrow">Bilingual professional portfolio</p>
+        <h1>Operations, support, data, and practical problem solving.</h1>
+        <p class="lead">I bring clear communication and organized execution to technical support, business operations, data-quality work, and customer-facing projects.</p>
+        <div class="socials" aria-label="Portfolio platforms">
+          <a href="https://www.linkedin.com/in/diegolauri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/diegolauri" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="coming-soon.html">Kaggle</a>
+          <a href="coming-soon.html">YouTube</a>
+          <a href="coming-soon.html">GitLab</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section>
+      <p class="eyebrow" style="color:#1769aa">About</p>
+      <h2>Clear, reliable work across people, processes, and technology.</h2>
+      <p class="intro">This portfolio highlights practical experience and projects spanning operations, technical support, data analysis, AI data quality, and digital work. I focus on useful outcomes, respectful communication, and work that can be understood by both technical and non-technical audiences.</p>
+    </section>
+    <section id="portfolio">
+      <p class="eyebrow" style="color:#1769aa">Portfolios and practical experience</p>
+      <h2>Areas of work</h2>
+      <div class="grid">
+        <article class="card"><div class="number">01</div><h3>Accounting</h3><p>Organized financial support, documentation, and process-aware work.</p></article>
+        <article class="card"><div class="number">02</div><h3>Business Support</h3><p>Administrative coordination, customer service, and day-to-day operational support.</p></article>
+        <article class="card"><div class="number">03</div><h3>Project Management</h3><p>Planning, communication, follow-through, and structured delivery.</p></article>
+        <article class="card"><div class="number">04</div><h3>Data Analysis</h3><p>Turning information into organized, useful, and understandable insights.</p></article>
+        <article class="card"><div class="number">05</div><h3>Cybersecurity</h3><p>Security awareness, responsible practices, and foundational technical knowledge.</p></article>
+        <article class="card"><div class="number">06</div><h3>IT Support</h3><p>Practical troubleshooting and user-focused technical assistance.</p></article>
+        <article class="card"><div class="number">07</div><h3>Digital Marketing</h3><p>Clear communication, digital presence, and audience-oriented content.</p></article>
+        <article class="card"><div class="number">08</div><h3>AI Data Quality</h3><p>Careful evaluation and quality-focused work for AI-related data projects.</p></article>
+        <article class="card"><div class="number">09</div><h3>Networking (IT)</h3><p>Foundational networking knowledge and dependable technical support.</p></article>
+        <article class="card"><div class="number">10</div><h3>Training, Webinars &amp; Workshops</h3><p>Knowledge sharing and accessible learning support.</p></article>
+        <article class="card"><div class="number">11</div><h3>Volunteer Work</h3><p>Community-minded contributions and collaborative service.</p></article>
+      </div>
+    </section>
+    <section>
+      <div class="notice"><strong>Data and privacy notice.</strong> I do not use employer data without authorization. Any data shown in portfolio projects is invented, anonymized, or otherwise presented only when appropriate for demonstration.</div>
+    </section>
+    <section class="contact" id="contact">
+      <div><h2>Let’s connect.</h2><p>For professional opportunities, project conversations, or questions about this portfolio, please reach out through LinkedIn.</p></div>
+      <a class="button" href="https://www.linkedin.com/in/diegolauri" target="_blank" rel="noopener noreferrer">Contact me</a>
+    </section>
+  </main>
+  <footer class="wrap">© 2026 Diego Lauri. Built as a professional portfolio.</footer>
 </body>
 </html>
