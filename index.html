@@ -12,14 +12,105 @@ Page
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Diego Lauri | Professional Portfolio</title>
 <style>
-:root{--navy:#071d36;--blue:#0d5da8;--teal:#129b91;--gold:#f2bf43;--paper:#f5f8fb;--ink:#10253c;--muted:#526e88;--line:#d9e3ed}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.55 Arial,sans-serif;background:var(--paper);color:var(--ink)}.wrap{width:min(1760px,94vw);margin:auto}.nav,footer{background:var(--navy);color:#fff}.nav{height:82px}.nav .wrap,footer .wrap{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:.04em}.brand small{font-weight:400;opacity:.7;margin-left:12px}.nav a{color:#fff;text-decoration:none;font-weight:bold;margin-left:24px}.hero{min-height:620px;display:flex;align-items:center;color:#fff;background:radial-gradient(circle at 86% 8%,#278997,transparent 32%),linear-gradient(125deg,#06182f,#0a3156 64%,#12687a)}.hero .wrap{padding:80px 0}.eyebrow,.label{margin:0 0 14px;font-size:.78rem;letter-spacing:.14em;font-weight:800}.eyebrow{color:var(--gold)}.label{color:var(--blue)}h1{max-width:980px;margin:0;font-size:clamp(3.4rem,7.5vw,8.5rem);line-height:.87;letter-spacing:-.07em}h1 span{color:#a9f0df}.hero p{max-width:800px;color:#dceafa;font-size:clamp(1.05rem,1.5vw,1.35rem);margin:28px 0}.button{display:inline-block;padding:14px 20px;border-radius:8px;background:var(--gold);color:var(--navy);font-weight:800;text-decoration:none}.button.alt{margin-left:10px;background:transparent;color:#fff;border:1px solid #a7c7e1}section{padding:94px 0}.title{margin:0;font-size:clamp(2.7rem,5vw,5.2rem);line-height:.95;letter-spacing:-.065em}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:42px}.card{min-height:245px;padding:27px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 32px #0a31560c}.number{color:var(--teal);font-weight:800}.card h3{margin:24px 0 9px;font-size:1.42rem;line-height:1.1}.card p,.platform p,.contact p{margin:0;color:var(--muted)}.standards{background:var(--navy);color:#fff}.two,.connect{display:grid;grid-template-columns:1fr 1fr;gap:24px}.standard{padding:38px;background:#0c2947;border:1px solid #31516f}.standard h2,.platform h2{margin:0 0 15px;font-size:2rem;line-height:1}.standard p{margin:0;color:#d3e3f1}.contact{padding:42px;background:#dff5ef;border-left:7px solid var(--teal)}.platform{padding:42px;background:#fff;border:1px solid var(--line)}.social{display:flex;flex-wrap:wrap;gap:11px;margin-top:24px}.social a,.social span{padding:11px 14px;background:#fff;border:1px solid var(--line);border-radius:7px;color:var(--ink);font-weight:bold;text-decoration:none}.social span{color:#718499}.booking{margin-top:30px;padding:27px 30px;background:var(--gold);display:flex;justify-content:space-between;font-weight:bold}.booking a{color:var(--navy)}footer{height:78px;color:#c1d4e7}footer a{color:#fff;font-weight:bold;text-decoration:none}@media(max-width:1050px){.cards{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){.wrap{width:calc(100% - 36px)}.nav nav{display:none}.cards,.two,.connect{grid-template-columns:1fr}.hero{min-height:560px}section{padding:68px 0}.booking,footer .wrap{flex-direction:column;justify-content:center;align-items:flex-start}}@media(max-width:480px){.cards{grid-template-columns:1fr}h1{font-size:3.35rem}}</style>
+:root{--navy:#071d36;--blue:#0d5da8;--teal:#129b91;--gold:#f2bf43;--paper:#f5f8fb;--ink:#10253c;--muted:#526e88;--line:#d9e3ed}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.55 Arial,sans-serif;background:var(--paper);color:var(--ink)}.wrap{width:min(1760px,94vw);margin:auto}.nav,footer{background:var(--navy);color:#fff}.nav{height:82px}.nav .wrap,footer .wrap{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:.04em}.brand small{font-weight:400;opacity:.7;margin-left:12px}.nav a{color:#fff;text-decoration:none;font-weight:bold;margin-left:24px}.hero{min-height:620px;display:flex;align-items:center;color:#fff;background:radial-gradient(circle at 86% 8%,#278997,transparent 32%),linear-gradient(125deg,#06182f,#0a3156 64%,#12687a)}.hero .wrap{padding:80px 0}.eyebrow,.label{margin:0 0 14px;font-size:.78rem;letter-spacing:.14em;font-weight:800}.eyebrow{color:var(--gold)}.label{color:var(--blue)}h1{max-width:980px;margin:0;font-size:clamp(3.4rem,7.5vw,8.5rem);line-height:.87;letter-spacing:-.07em}h1 span{color:#a9f0df}.hero p{max-width:800px;color:#dceafa;font-size:clamp(1.05rem,1.5vw,1.35rem);margin:28px 0}.button{display:inline-block;padding:14px 20px;border-radius:8px;background:var(--gold);color:var(--navy);font-weight:800;text-decoration:none}.button.alt{margin-left:10px;background:transparent;color:#fff;border:1px solid #a7c7e1}section{padding:94px 0}.title{margin:0;font-size:clamp(2.7rem,5vw,5.2rem);line-height:.95;letter-spacing:-.065em}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:42px}.card{min-height:245px;padding:27px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 32px #0a31560c}.number{color:var(--teal);font-weight:800}.card h3{margin:24px 0 9px;font-size:1.42rem;line-height:1.1}.card p,.platform p,.contact p{margin:0;color:var(--muted)}.standards{background:var(--navy);color:#fff}.two,.connect{display:grid;grid-template-columns:1fr 1fr;gap:24px}.standard{padding:38px;background:#0c2947;border:1px solid #31516f}.standard h2,.platform h2{margin:0 0 15px;font-size:2rem;line-height:1}.standard p{margin:0;color:#d3e3f1}.contact{padding:42px;background:#dff5ef;border-left:7px solid var(--teal)}.platform{padding:42px;background:#fff;border:1px solid var(--line)}.social{display:flex;flex-wrap:wrap;gap:11px;margin-top:24px}.social a,.social span{padding:11px 14px;background:#fff;border:1px solid var(--line);border-radius:7px;color:var(--ink);font-weight:bold;text-decoration:none}.social span{color:#718499}.booking{margin-top:30px;padding:27px 30px;background:var(--gold);display:flex;justify-content:space-between;font-weight:bold}.booking a{color:var(--navy)}footer{height:78px;color:#c1d4e7}footer a{color:#fff;font-weight:bold;text-decoration:none}@media(max-width:1050px){.cards{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){.wrap{width:calc(100% - 36px)}.nav nav{display:none}.cards,.two,.connect{grid-template-columns:1fr}.hero{min-height:560px}section{padding:68px 0}.booking,footer .wrap{flex-direction:column;justify-content:center;align-items:flex-start}}@media(max-width:480px){.cards{grid-template-columns:1fr}h1{font-size:3.35rem}}
+
+/* Block 1 — header and hero */
+.nav{height:auto;min-height:82px;background:#fff;color:var(--ink);border-bottom:1px solid var(--line)}
+.nav .wrap{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:13px;color:var(--navy);text-decoration:none;white-space:nowrap}
+.monogram{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--blue));border:2px solid var(--gold);color:#fff;font-size:1.4rem;font-weight:800;letter-spacing:-.11em;box-shadow:0 5px 14px rgba(7,29,54,.18)}
+.brand-name{font-size:clamp(1.2rem,2vw,1.55rem);font-weight:800;letter-spacing:-.03em}
+.nav nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.nav a{margin:0;padding:9px 10px;color:var(--navy);border-radius:7px}
+.nav a:hover,.nav a:focus-visible{background:var(--paper);color:var(--blue);outline:none}
+.language-toggle{margin-left:5px;padding:9px 12px;border:1px solid var(--navy);border-radius:7px;background:#fff;color:var(--navy);font:inherit;font-weight:700;cursor:pointer}
+.language-toggle:hover,.language-toggle:focus-visible{background:var(--navy);color:#fff;outline:2px solid var(--gold);outline-offset:2px}
+.hero{min-height:0;color:var(--ink);background:#fff}
+.hero .wrap{padding:clamp(54px,9vw,112px) 0 clamp(58px,9vw,106px)}
+.hero .eyebrow{color:var(--blue)}
+.hero h1{max-width:1000px;font-size:clamp(3rem,6.8vw,5.8rem);line-height:1.03;letter-spacing:-.055em;color:var(--navy)}
+.hero h1 span{color:var(--blue)}
+.hero p{max-width:760px;color:var(--muted);font-size:clamp(1.08rem,2.2vw,1.3rem);margin:23px 0 0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:29px}
+.hero .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 17px;border:2px solid var(--navy);background:var(--navy);color:#fff}
+.hero .button:hover,.hero .button:focus-visible{background:var(--blue);border-color:var(--blue);outline:2px solid var(--gold);outline-offset:2px}
+.hero .button.alt{margin-left:0;background:#fff;color:var(--navy)}
+.hero .button.alt:hover,.hero .button.alt:focus-visible{background:var(--paper);color:var(--blue);border-color:var(--blue)}
+@media(max-width:760px){
+  .nav .wrap{min-height:0;padding:12px 0;align-items:flex-start;flex-direction:column;gap:10px}
+  .nav nav{width:100%;justify-content:flex-start;gap:1px}
+  .nav a{padding:7px 8px}
+  .language-toggle{margin-left:auto;padding:7px 10px}
+  .hero .wrap{padding:58px 0 64px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero .button{width:100%}
+}
+@media(max-width:420px){
+  .monogram{width:47px;height:47px;font-size:1.28rem}
+  .brand-name{font-size:1.16rem}
+  .nav nav{font-size:.92rem}
+  .language-toggle{margin-left:0}
+}
+</style>
 </head>
-<body id="top"><header class="nav"><div class="wrap"><div class="brand">Diego Lauri <small>Professional Portfolio</small></div><nav><a href="#portfolio">Portfolio</a><a href="#connect">Connect</a><a href="#platforms">Platforms</a></nav></div></header>
-<main><section class="hero"><div class="wrap"><p class="eyebrow">15+ YEARS OF WORK EXPERIENCE</p><h1>Technology, Data <span>&amp; Operations</span></h1><p>Bilingual English-Spanish professional with experience in technology, data, technical support, business operations, cybersecurity, project coordination, and process improvement.</p><a class="button" href="#portfolio">View portfolio</a><a class="button alt" href="#connect">Connect: EN / ES</a></div></section>
+<body id="top">
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Diego Lauri portfolio home">
+      <span class="monogram" aria-hidden="true">DL</span>
+      <span class="brand-name">Diego Lauri</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#portfolio" data-en="Portfolio" data-es="Portafolio">Portfolio</a>
+      <a href="#connect" data-en="Connect" data-es="Contacto">Connect</a>
+      <a href="#platforms" data-en="Platforms" data-es="Plataformas">Platforms</a>
+      <button class="language-toggle" type="button" aria-label="Switch to Spanish">Español</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <p class="eyebrow" data-en="15+ YEARS OF WORK EXPERIENCE" data-es="MÁS DE 15 AÑOS DE EXPERIENCIA PROFESIONAL">15+ YEARS OF WORK EXPERIENCE</p>
+      <h1 id="hero-title" data-en="Technology, Data <span>&amp; Operations</span>" data-es="Tecnología, Datos <span>y Operaciones</span>">Technology, Data <span>&amp; Operations</span></h1>
+      <p data-en="Bilingual English-Spanish professional with experience in technology, data, technical support, business operations, cybersecurity, project coordination, and process improvement." data-es="Profesional bilingüe inglés-español con experiencia en tecnología, datos, soporte técnico, operaciones de negocio, ciberseguridad, coordinación de proyectos y mejora de procesos.">Bilingual English-Spanish professional with experience in technology, data, technical support, business operations, cybersecurity, project coordination, and process improvement.</p>
+      <div class="hero-actions">
+        <a class="button" href="#portfolio" data-en="View portfolio" data-es="Ver portafolio">View portfolio</a>
+        <a class="button alt" href="#connect" data-en="Connect" data-es="Contacto">Connect</a>
+      </div>
+    </div>
+  </section>
 <section id="portfolio"><div class="wrap"><p class="label">PORTFOLIO AREAS</p><h2 class="title">Portfolios and practical experience</h2><div class="cards">
 <article class="card"><div class="number">01</div><h3>Cybersecurity</h3><p>Security documentation, risk awareness, and safer digital-work practices.</p></article><article class="card"><div class="number">02</div><h3>IT Support</h3><p>User troubleshooting, device and software support, and knowledge-base documentation.</p></article><article class="card"><div class="number">03</div><h3>Project Management</h3><p>Scope, timelines, coordination, status reporting, and delivery follow-through.</p></article><article class="card"><div class="number">04</div><h3>Data Analysis</h3><p>Data preparation, reporting, dashboards, and Tableau visualization work.</p></article><article class="card"><div class="number">05</div><h3>Digital Marketing</h3><p>Audience research, content support, campaigns, and performance reporting.</p></article><article class="card"><div class="number">06</div><h3>Accounting</h3><p>Financial records, invoice support, reconciliation preparation, and administrative reporting.</p></article><article class="card"><div class="number">07</div><h3>Business Support</h3><p>Research, documentation, coordination, CRM support, and operational workflows.</p></article><article class="card"><div class="number">08</div><h3>AI Data Quality</h3><p>Model-output review, labeling consistency, bilingual checks, and evaluation rationale.</p></article><article class="card"><div class="number">09</div><h3>Training, Webinars &amp; Workshops</h3><p>Paid online workshops, practical training, and team learning sessions for individuals and organizations.</p></article><article class="card"><div class="number">10</div><h3>Civic Leadership</h3><p>Civic participation, community coordination, and stakeholder communication.</p></article><article class="card"><div class="number">11</div><h3>Volunteer Work</h3><p>Service contributions, activity support, collaboration, and community engagement.</p></article><article class="card"><div class="number">12</div><h3>Networking</h3><p>Network troubleshooting, connectivity support, documentation, and foundational system administration.</p></article>
 </div></div></section>
 <section class="standards"><div class="wrap two"><article class="standard"><p class="eyebrow">PORTFOLIO STANDARDS</p><h2>Practical work, responsibly presented.</h2><p>Work shown here reflects practical experience, independent projects, and authorized learning. Descriptions focus on scope, methods, and outcomes; confidential, personal, and client-specific information is not included.</p></article><article class="standard"><p class="eyebrow">PROFESSIONAL STANDARDS</p><h2>Privacy and confidentiality come first.</h2><p>I never use employer, client, or organizational data without explicit authorization. Portfolio examples contain anonymized, fictional, generalized, or modified information and never include passwords, personal data, private screenshots, proprietary materials, or sensitive information.</p></article></div></section>
 <section id="connect"><div class="wrap connect"><article class="contact"><p class="label">CONNECT</p><h2 class="title">Contact me</h2><p>For professional opportunities, projects, training, or community collaboration.</p><div class="social"><a class="button" href="mailto:diego.lauriy@gmail.com">Email me</a><a href="mailto:diego.lauriy@gmail.com">Send a message</a><a href="https://www.linkedin.com/in/diegolauri">LinkedIn</a><a href="https://github.com/diegolauri">GitHub</a></div><p style="margin-top:20px">WhatsApp and Snapchat are available upon request.</p></article><article class="platform" id="platforms"><p class="label">PORTFOLIO PLATFORMS</p><h2>Find my work online.</h2><p>Public platforms, projects, and professional resources.</p><div class="social"><a href="https://www.youtube.com/@diegolauri">YouTube</a><span>Notion · coming soon</span><a href="https://github.com/diegolauri">GitHub</a><span>Tableau · coming soon</span><span>Claude · coming soon</span><span>Kaggle · coming soon</span><span>Behance · coming soon</span><span>GitLab · coming soon</span></div></article></div><div class="wrap"><div class="booking"><span>View payments &amp; bookings</span><a href="#connect">Contact Diego Lauri →</a></div></div></section></main>
-<footer><div class="wrap"><span>© Diego Lauri</span><a href="#top">Back to top ↑</a></div></footer></body></html>
+<footer><div class="wrap"><span>© Diego Lauri</span><a href="#top">Back to top ↑</a></div></footer>
+<script>
+  const languageToggle = document.querySelector('.language-toggle');
+  let currentLanguage = 'en';
+
+  languageToggle.addEventListener('click', () => {
+    currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
+    document.documentElement.lang = currentLanguage;
+
+    document.querySelectorAll('[data-en][data-es]').forEach((element) => {
+      const value = element.dataset[currentLanguage];
+      if (element.tagName === 'H1') {
+        element.innerHTML = value;
+      } else {
+        element.textContent = value;
+      }
+    });
+
+    languageToggle.textContent = currentLanguage === 'en' ? 'Español' : 'English';
+    languageToggle.setAttribute(
+      'aria-label',
+      currentLanguage === 'en' ? 'Switch to Spanish' : 'Cambiar a inglés'
+    );
+  });
+</script>
+</body>
+</html>
 Displaying index.html.
