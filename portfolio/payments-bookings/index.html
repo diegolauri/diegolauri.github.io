@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Diego Lauri payments and bookings information">
   <title>Payments & Bookings | Diego Lauri</title>
-  <link rel="stylesheet" href="../../portfolio-v2.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
   <header>
-    <div class="wrap">
-      <nav>
-        <strong>Diego Lauri</strong>
-        <span><a href="../../portfolio-v2.html" data-en="Main portfolio" data-es="Portafolio principal">Main portfolio</a> · <a href="../training-webinars-workshops/" data-en="Training" data-es="Capacitación">Training</a> · <button data-language-toggle>EN / ES</button></span>
-      </nav>
-    </div>
-  </header>
+  <div class="wrap">
+    <a class="brand" href="/">Diego <span>Lauri</span></a>
+    <nav aria-label="Site navigation">
+      <a href="/" data-en="Home" data-es="Inicio">Home</a>
+      <a href="/portfolio/" data-en="Portfolio" data-es="Portafolio">Portfolio</a>
+    </nav>
+    <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Switch site language to Spanish">EN / ES</button>
+  </div>
+</header>
   <main>
     <section class="hero">
       <div class="wrap">
@@ -51,6 +53,11 @@
       </div>
     </section>
   </main>
-  <script>let lang='en';function setLang(l){lang=l;document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(e=>e.textContent=e.dataset[l]);}document.addEventListener('click',e=>{if(e.target.closest('[data-language-toggle]')){e.preventDefault();setLang(lang==='en'?'es':'en');}});</script>
-</body>
+  <footer>
+  <div class="wrap">
+    <p data-en="© 2026 Diego Lauri" data-es="© 2026 Diego Lauri">© 2026 Diego Lauri</p>
+    <a href="/" data-en="Back to home" data-es="Volver al inicio">Back to home</a>
+  </div>
+</footer>
+  <script src="/assets/js/site.js"></script>
 </html>
