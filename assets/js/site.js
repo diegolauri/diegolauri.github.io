@@ -1,20 +1,199 @@
-const nav=document.querySelector('nav'),menu=document.querySelector('.menu');if(menu)menu.onclick=()=>nav.classList.toggle('open');document.querySelectorAll('#year').forEach(x=>x.textContent=new Date().getFullYear());const content={
-'ai-data-quality':{tag:'PORTFOLIO · 01',title:'AI Data Quality',intro:'Professional experience evaluating AI-generated text, image, video, audio, and web-based outputs for accuracy, reasoning, instruction adherence, hallucinations, and quality issues.',links:[['LLM Evaluation Case Study','llm-evaluation'],['Quality Rubric & Findings','quality-rubric']],verified:'Professional background: 2,000+ multimodal evaluations across 10+ AI evaluation projects, with a 92–97% internal QA accuracy range.'},
-'llm-evaluation':{tag:'CASE STUDY · PLANNED INDEPENDENT PROJECT',title:'LLM Evaluation Case Study',intro:'An original, public-facing case study that demonstrates how I evaluate AI responses using a transparent rubric. This page will use fictional prompts and non-confidential examples only.',case:true,tools:'Google Sheets · Python · Jupyter Notebook · original evaluation rubric',deliverable:'Planned deliverable: anonymized evaluation report, scoring table, and GitHub repository.'},
-'quality-rubric':{tag:'CASE STUDY · PLANNED INDEPENDENT PROJECT',title:'Quality Rubric & Findings',intro:'A reusable quality-assurance framework for assessing accuracy, instruction following, reasoning, safety, and clarity in AI-generated responses.',case:true,tools:'Notion · Google Sheets · Tableau Public',deliverable:'Planned deliverable: original rubric, aggregated findings, and improvement recommendations.'},
-'data-analysis':{tag:'PORTFOLIO · 02',title:'Data Analysis',intro:'Applied data work focused on cleaning, organizing, analyzing, and communicating information that supports practical decisions.',links:[['Community Resource Dashboard','community-dashboard'],['Data Cleaning Notebook','data-cleaning']],verified:'Current work includes supporting an AI-powered workflow for community-resource data related to housing, food security, income, mental health, and maternal care.'},
-'community-dashboard':{tag:'CASE STUDY · PLANNED PUBLIC VERSION',title:'Community Resource Dashboard',intro:'A public or synthetic-data dashboard designed to make community-resource information easier to explore, verify, and communicate.',case:true,tools:'Tableau Public · Excel · SQL · Google Sheets',deliverable:'Planned deliverable: interactive dashboard, data dictionary, and concise insight report.'},
-'data-cleaning':{tag:'CASE STUDY · PLANNED INDEPENDENT PROJECT',title:'Data Cleaning Notebook',intro:'A reproducible notebook documenting how raw data is inspected, cleaned, validated, and prepared for analysis.',case:true,tools:'Python · pandas · Jupyter Notebook · GitHub',deliverable:'Planned deliverable: documented notebook, cleaned sample dataset, and validation checklist.'},
-'it-cybersecurity':{tag:'PORTFOLIO · 03',title:'IT Support & Cybersecurity',intro:'Technical-support and cybersecurity foundations supported by CompTIA and Google training, with an emphasis on clear troubleshooting and safe system practices.',links:[['Help Desk Knowledge Base','help-desk'],['Small Office Network Lab','network-lab'],['Security Assessment','security-assessment']],verified:'Credentials include CompTIA A+, Network+, and Security+, plus Google IT Support and Cybersecurity certificates.'},
-'help-desk':{tag:'CASE STUDY · PLANNED INDEPENDENT PROJECT',title:'Help Desk Knowledge Base',intro:'A set of clear, user-centered support articles for common workplace technology issues, from account access to connectivity troubleshooting.',case:true,tools:'Microsoft 365 · Google Workspace · Windows · ticketing-system demo',deliverable:'Planned deliverable: sanitized knowledge-base articles and sample support workflows.'},
-'network-lab':{tag:'CASE STUDY · PLANNED INDEPENDENT PROJECT',title:'Small Office Network Lab',intro:'A fictional small-office network design that demonstrates IP planning, device organization, Wi-Fi security, and troubleshooting.',case:true,tools:'Cisco Packet Tracer · Wireshark · draw.io',deliverable:'Planned deliverable: network diagram, IP-address plan, and lab documentation.'},
-'security-assessment':{tag:'CASE STUDY · PLANNED INDEPENDENT PROJECT',title:'Security Assessment',intro:'A safe, authorized assessment of a fictional or personal lab environment focused on practical controls and prioritized remediation.',case:true,tools:'Security checklist · VirtualBox · Microsoft Defender · Nmap in a lab',deliverable:'Planned deliverable: risk register, remediation plan, and security-awareness guide.'},
-'business-operations':{tag:'PORTFOLIO · 04',title:'Business Operations',intro:'Operations experience in logistics, e-commerce, customer service, shipping, inventory, reporting, and process coordination.',links:[['Bookkeeping Simulation','bookkeeping'],['Operations Improvement Proposal','operations-improvement'],['Project Management Plan','project-management']],verified:'Professional background includes logistics/e-commerce operations, high-volume shipment processing, billing reconciliation, customer service, and team coordination.'},
-'bookkeeping':{tag:'CASE STUDY · PLANNED INDEPENDENT PROJECT',title:'Bookkeeping Simulation',intro:'A fictional small-business bookkeeping workflow demonstrating transaction entry, reconciliation, and monthly reporting.',case:true,tools:'QuickBooks Online · Excel · Google Sheets',deliverable:'Planned deliverable: fictional chart of accounts, reconciled ledger, and monthly profit-and-loss report.'},
-'operations-improvement':{tag:'CASE STUDY · PLANNED INDEPENDENT PROJECT',title:'Operations Improvement Proposal',intro:'A practical proposal showing how a workflow can be mapped, measured, and improved to reduce errors or delays.',case:true,tools:'Excel · Google Sheets · draw.io · KPI dashboard',deliverable:'Planned deliverable: process map, baseline metrics, and recommendations.'},
-'project-management':{tag:'CASE STUDY · PLANNED INDEPENDENT PROJECT',title:'Project Management Plan',intro:'A complete project plan for a data or operations initiative, including scope, milestones, risks, stakeholders, and review points.',case:true,tools:'Notion · Trello · Asana · Google Sheets',deliverable:'Planned deliverable: project charter, timeline, Kanban board, and risk register.'},
-'civic-leadership':{tag:'PORTFOLIO · 05',title:'Civic Leadership',intro:'Community-centered research and operational support that connect people with relevant services, clear information, and responsive communication.',case:true,tools:'Airtable · Google Forms · Canva · Google Sheets',deliverable:'Planned deliverable: public or authorized resource guide, outreach tracker, and impact summary.'},
-'certifications':{tag:'CREDENTIALS',title:'Certifications & Education',intro:'A multidisciplinary academic and professional foundation across AI, data, business, IT support, cybersecurity, accounting, and operations.',case:true,tools:'CompTIA: A+, Network+, Security+ · Google: IT Support, Data Analytics, Cybersecurity, Digital Marketing, Python · Applied Artificial Intelligence · QuickBooks, Payroll, Bookkeeping, Taxation · Project Management',deliverable:'Education includes a B.B.A. in progress at Notre Dame de Namur University; Business Analytics studies at College of San Mateo; and associate degrees/certificates in business, accounting, economics, management, entrepreneurship, and business assistance.'},
-'resume':{tag:'RESUME',title:'Professional Resume',intro:'Bilingual English–Spanish professional with experience in AI data quality, technical support, business operations, customer service, logistics, and data analysis.',case:true,tools:'To add: upload a PDF named Diego-Lauri-Resume.pdf to the assets folder.',deliverable:'Résumé highlights: 2,000+ AI evaluations; community-data analysis; operations and e-commerce support; logistics, billing, and customer-service leadership.'},
-'contact':{tag:'CONTACT',title:'Let’s connect.',intro:'I welcome professional conversations about AI data quality, data operations, technical support, business operations, and community-centered technology work.',case:true,tools:'Email: diego.lauriy@gmail.com',deliverable:'LinkedIn: https://www.linkedin.com/in/diegolauri'}
-};const root=document.querySelector('#page');if(root){const id=new URLSearchParams(location.search).get('id')||'ai-data-quality',p=content[id]||content['ai-data-quality'];const links=p.links?'<div class="cards">'+p.links.map(x=>'<a href="page.html?id='+x[1]+'"><small>OPEN</small><h3>'+x[0]+'</h3><p>View project page →</p></a>').join('')+'</div>':'';const verified=p.verified?'<p class="notice"><b>Verified background:</b> '+p.verified+'</p>':'';const detail=p.case?'<div class="case"><section><p class="kicker">PROJECT AT A GLANCE</p><div class="meta"><div><b>Role</b><br>Independent portfolio project / professional background</div><div><b>Tools</b><br>'+p.tools+'</div><div><b>Status</b><br>In development</div></div></section><section><p class="kicker">OBJECTIVE</p><h2>Context and goal</h2><p>This page is structured as an editable portfolio case study. It will be completed with public, fictional, anonymized, or authorized material that demonstrates the skills named above.</p></section><section><p class="kicker">PROCESS</p><h2>How the work will be documented</h2><ol class="checklist"><li>Define the problem, audience, scope, and success criteria.</li><li>Document the tools, method, quality checks, and decisions.</li><li>Publish a clear deliverable with lessons learned and next steps.</li></ol></section><section><p class="kicker">DELIVERABLE</p><h2>Evidence of work</h2><p>'+p.deliverable+'</p><p class="notice"><b>Publishing reminder:</b> Use only public, fictional, anonymized, or authorized content. Never publish confidential client, employer, platform, or personal information.</p></section></div>':'';root.innerHTML='<section class="pagehero"><a class="breadcrumb" href="index.html">← Home</a><p class="kicker">'+p.tag+'</p><h1>'+p.title+'</h1><p class="lead">'+p.intro+'</p>'+verified+links+'</section>'+detail}
+const storageKey = 'preferred-language';
+const translations = {
+  'skip.link': 'Skip to main content',
+  'es.skip.link': 'Saltar al contenido principal',
+  'header.subtitle': 'Professional Portfolio',
+  'es.header.subtitle': 'Portafolio profesional',
+  'nav.ariaLabel': 'Primary navigation',
+  'es.nav.ariaLabel': 'Navegación principal',
+  'nav.home': 'Home',
+  'es.nav.home': 'Inicio',
+  'nav.portfolio': 'Portfolio',
+  'es.nav.portfolio': 'Portafolio',
+  'nav.connect': 'Connect',
+  'es.nav.connect': 'Contacto',
+  'nav.platforms': 'Platforms',
+  'es.nav.platforms': 'Plataformas',
+  'hero.eyebrow': '15+ YEARS OF WORK EXPERIENCE',
+  'es.hero.eyebrow': 'MÁS DE 15 AÑOS DE EXPERIENCIA PROFESIONAL',
+  'hero.title.before': 'Technology, Data',
+  'es.hero.title.before': 'Tecnología, Datos',
+  'hero.title.after': '& Operations',
+  'es.hero.title.after': 'y Operaciones',
+  'hero.desc': 'Bilingual English-Spanish professional with experience in technology, data, technical support, business operations, cybersecurity, project coordination, and process improvement.',
+  'es.hero.desc': 'Profesional bilingüe inglés-español con experiencia en tecnología, datos, soporte técnico, operaciones de negocio, ciberseguridad, coordinación de proyectos y mejora de procesos.',
+  'hero.view': 'View portfolio',
+  'es.hero.view': 'Ver portafolio',
+  'hero.connect': 'Connect: EN / ES',
+  'es.hero.connect': 'Conectar: EN / ES',
+  'portfolio.label': 'Portfolio areas',
+  'es.portfolio.label': 'Áreas de portafolio',
+  'portfolio.title': 'Portfolios and practical experience',
+  'es.portfolio.title': 'Portafolios y experiencia práctica',
+  'portfolio.intro': 'Explore focused portfolio areas with work samples, methods, and evidence presented clearly and responsibly.',
+  'es.portfolio.intro': 'Explora áreas de portafolio enfocadas, con muestras de trabajo, métodos y evidencia presentados de forma clara y responsable.',
+  'card.explore': 'Explore area →',
+  'es.card.explore': 'Explorar área →',
+  'card.cyber.title': 'Cybersecurity',
+  'es.card.cyber.title': 'Ciberseguridad',
+  'card.cyber.desc': 'Defensive security documentation, risk awareness, and safer digital-work practices.',
+  'es.card.cyber.desc': 'Documentación de seguridad defensiva, conciencia de riesgo y prácticas digitales más seguras.',
+  'card.it.title': 'IT Support',
+  'es.card.it.title': 'Soporte técnico',
+  'card.it.desc': 'User troubleshooting, device and software support, and clear knowledge-base documentation.',
+  'es.card.it.desc': 'Resolución de problemas de usuarios, soporte de dispositivos y software, y documentación clara de base de conocimientos.',
+  'card.pm.title': 'Project Management',
+  'es.card.pm.title': 'Gestión de proyectos',
+  'card.pm.desc': 'Project planning, coordination, timelines, status reporting, and delivery follow-through.',
+  'es.card.pm.desc': 'Planificación de proyectos, coordinación, cronogramas, informes de estado y seguimiento de entregas.',
+  'card.data.title': 'Data Analysis',
+  'es.card.data.title': 'Análisis de datos',
+  'card.data.desc': 'Data preparation, analysis, reporting, dashboards, and clear visual communication.',
+  'es.card.data.desc': 'Preparación de datos, análisis, informes, dashboards y comunicación visual clara.',
+  'card.marketing.title': 'Digital Marketing',
+  'es.card.marketing.title': 'Marketing digital',
+  'card.marketing.desc': 'Audience research, content planning, campaign support, and performance reporting.',
+  'es.card.marketing.desc': 'Investigación de audiencia, planificación de contenido, apoyo de campañas e informes de rendimiento.',
+  'card.accounting.title': 'Accounting',
+  'es.card.accounting.title': 'Contabilidad',
+  'card.accounting.desc': 'Financial record support, invoice workflows, reconciliation preparation, and administrative reporting.',
+  'es.card.accounting.desc': 'Apoyo de registros financieros, flujos de trabajo de facturación, preparación de conciliaciones e informes administrativos.',
+  'card.business.title': 'Business Support',
+  'es.card.business.title': 'Soporte empresarial',
+  'card.business.desc': 'Research, documentation, coordination, CRM support, and operational workflow improvement.',
+  'es.card.business.desc': 'Investigación, documentación, coordinación, soporte CRM y mejora de flujos operativos.',
+  'card.ai.title': 'AI Data Quality',
+  'es.card.ai.title': 'Calidad de datos de IA',
+  'card.ai.desc': 'Bilingual model-output review, labeling consistency, quality evaluation, and documented rationale.',
+  'es.card.ai.desc': 'Revisión bilingüe de salidas de modelos, consistencia de etiquetado, evaluación de calidad y justificación documentada.',
+  'card.training.title': 'Training, Webinars & Workshops',
+  'es.card.training.title': 'Capacitación, Seminarios Web y Talleres',
+  'card.training.desc': 'Learning materials, practical workshops, team learning resources, and instructional documentation.',
+  'es.card.training.desc': 'Materiales de aprendizaje, talleres prácticos, recursos de aprendizaje en equipo y documentación instructiva.',
+  'card.civic.title': 'Civic Leadership',
+  'es.card.civic.title': 'Liderazgo cívico',
+  'card.civic.desc': 'Community coordination, stakeholder communication, civic participation, and responsible follow-through.',
+  'es.card.civic.desc': 'Coordinación comunitaria, comunicación con interesados, participación cívica y seguimiento responsable.',
+  'card.volunteer.title': 'Volunteer Work',
+  'es.card.volunteer.title': 'Trabajo voluntario',
+  'card.volunteer.desc': 'Service contributions, activity support, collaboration, and community engagement.',
+  'es.card.volunteer.desc': 'Contribuciones de servicio, apoyo de actividades, colaboración y participación comunitaria.',
+  'card.networking.title': 'Networking',
+  'es.card.networking.title': 'Redes',
+  'card.networking.desc': 'Connectivity troubleshooting, network documentation, foundational administration, and support practices.',
+  'es.card.networking.desc': 'Resolución de conectividad, documentación de redes, administración básica y prácticas de soporte.',
+  'standards.label': 'PROFESSIONAL PRACTICE',
+  'es.standards.label': 'PRÁCTICA PROFESIONAL',
+  'standards.title': 'Work presented with clarity and care.',
+  'es.standards.title': 'Trabajo presentado con claridad y cuidado.',
+  'standards.one.heading': 'Context and scope',
+  'es.standards.one.heading': 'Contexto y alcance',
+  'standards.one.copy': 'Published work may be independent, academic, volunteer-based, or authorized. Each item identifies its purpose, scope, and the material that can be shared responsibly.',
+  'es.standards.one.copy': 'El trabajo publicado puede ser independiente, académico, voluntario o autorizado. Cada elemento identifica su propósito, alcance y los materiales que pueden compartirse de forma responsable.',
+  'standards.two.heading': 'Privacy and confidentiality',
+  'es.standards.two.heading': 'Privacidad y confidencialidad',
+  'standards.two.copy': 'Portfolio examples use authorized, fictional, anonymized, generalized, modified, synthetic, or open information. Confidential, personal, client-specific, proprietary, and sensitive materials are not published.',
+  'es.standards.two.copy': 'Los ejemplos del portafolio utilizan información autorizada, ficticia, anonimizada, generalizada, modificada, sintética o abierta. No se publican materiales confidenciales, personales, específicos de clientes, propietarios ni sensibles.',
+  'standards.portfolio.label': 'PORTFOLIO STANDARDS',
+  'es.standards.portfolio.label': 'ESTÁNDARES DE PORTAFOLIO',
+  'standards.portfolio.heading': 'Practical work, responsibly presented.',
+  'es.standards.portfolio.heading': 'Trabajo práctico presentado de forma responsable.',
+  'standards.portfolio.copy': 'Work shown here reflects practical experience, independent projects, and authorized learning. Descriptions focus on scope, methods, and outcomes; confidential, personal, and client-specific information is not included.',
+  'es.standards.portfolio.copy': 'El trabajo mostrado aquí refleja experiencia práctica, proyectos independientes y aprendizaje autorizado. Las descripciones se centran en el alcance, los métodos y los resultados; no se incluye información confidencial, personal o específica de clientes.',
+  'standards.professional.label': 'PROFESSIONAL STANDARDS',
+  'es.standards.professional.label': 'ESTÁNDARES PROFESIONALES',
+  'standards.professional.heading': 'Privacy and confidentiality come first.',
+  'es.standards.professional.heading': 'La privacidad y la confidencialidad son lo primero.',
+  'standards.professional.copy': 'I never use employer, client, or organizational data without explicit authorization. Portfolio examples contain anonymized, fictional, generalized, or modified information and never include passwords, personal data, private screenshots, proprietary materials, or sensitive information.',
+  'es.standards.professional.copy': 'Nunca utilizo datos de empleadores, clientes u organizaciones sin autorización expresa. Los ejemplos del portafolio contienen información anonimizada, ficticia, generalizada o modificada y nunca incluyen contraseñas, datos personales, capturas de pantalla privadas, materiales propietarios ni información sensible.',
+  'contact.label': 'CONNECT',
+  'es.contact.label': 'CONTACTO',
+  'contact.title': 'Contact me',
+  'es.contact.title': 'Contáctame',
+  'contact.copy': 'For employment opportunities, independent professional engagements, and contract-based work.',
+  'es.contact.copy': 'Para oportunidades de empleo, colaboraciones profesionales independientes y trabajo por contrato.',
+  'contact.ctaHeading': 'Professional inquiries',
+  'es.contact.ctaHeading': 'Consultas profesionales',
+  'contact.note': 'WhatsApp and Snapchat are available upon request.',
+  'es.contact.note': 'WhatsApp y Snapchat están disponibles a pedido.',
+  'contact.primary': 'Email me',
+  'es.contact.primary': 'Enviar correo',
+  'contact.secondary': 'Send a message',
+  'es.contact.secondary': 'Enviar un mensaje',
+  'booking.link': 'Contact Diego Lauri →',
+  'es.booking.link': 'Contactar a Diego Lauri →',
+  'platforms.label': 'PORTFOLIO PLATFORMS',
+  'es.platforms.label': 'PLATAFORMAS DE PORTAFOLIO',
+  'platforms.title': 'Professional platforms',
+  'es.platforms.title': 'Plataformas profesionales',
+  'platforms.copy': 'Public profiles and selected portfolio resources.',
+  'es.platforms.copy': 'Perfiles públicos y recursos seleccionados del portafolio.',
+  'footer.copy': '© Diego Lauri',
+  'es.footer.copy': '© Diego Lauri',
+  'footer.back': 'Back to top ↑',
+  'es.footer.back': 'Volver arriba ↑',
+  'language.toggle': 'Spanish',
+  'es.language.toggle': 'English',
+  'language.toggle.ariaSpanish': 'Switch site language to Spanish',
+  'es.language.toggle.ariaEnglish': 'Cambiar el idioma del sitio a inglés'
+};
+
+const i18nElements = Array.from(document.querySelectorAll('[data-i18n]'));
+const bilingualElements = Array.from(document.querySelectorAll('[data-en]'));
+const langToggle = document.getElementById('lang-toggle');
+
+function getPreferredLanguage() {
+  try {
+    return localStorage.getItem(storageKey) || 'en';
+  } catch (error) {
+    return 'en';
+  }
+}
+
+function setPreferredLanguage(lang) {
+  try {
+    localStorage.setItem(storageKey, lang);
+  } catch (error) {
+    // ignore storage errors
+  }
+}
+
+function applyLanguage(lang) {
+  document.documentElement.lang = lang;
+
+  i18nElements.forEach((el) => {
+    const key = el.dataset.i18n;
+    if (!key) return;
+    const translation = lang === 'es' ? translations[`es.${key}`] : translations[key];
+    if (translation === undefined) return;
+    if (el.dataset.i18nAttr === 'aria-label') {
+      el.setAttribute('aria-label', translation);
+    } else {
+      el.textContent = translation;
+    }
+  });
+
+  bilingualElements.forEach((el) => {
+    const value = el.dataset[lang];
+    if (value !== undefined) {
+      el.textContent = value;
+    }
+  });
+
+  if (langToggle) {
+    langToggle.textContent = lang === 'es' ? translations['es.language.toggle'] : translations['language.toggle'];
+    langToggle.setAttribute('aria-label', lang === 'es' ? translations['es.language.toggle.ariaEnglish'] : translations['language.toggle.ariaSpanish']);
+    langToggle.setAttribute('aria-pressed', lang === 'es');
+  }
+}
+
+if (langToggle) {
+  langToggle.addEventListener('click', (event) => {
+    event.preventDefault();
+    const nextLang = document.documentElement.lang === 'es' ? 'en' : 'es';
+    applyLanguage(nextLang);
+    setPreferredLanguage(nextLang);
+  });
+}
+
+applyLanguage(getPreferredLanguage());
