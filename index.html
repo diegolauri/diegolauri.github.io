@@ -1,1 +1,92 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Diego Lauri | Portfolio</title><style>body{margin:0;font-family:Arial;color:#132238;background:#fff}header{padding:20px 6%;display:flex;justify-content:space-between;border-bottom:1px solid #dce5f0}nav a{margin:10px;color:#07366d;text-decoration:none;font-weight:bold}main{max-width:1200px;margin:auto;padding:70px 6%}h1{font-size:clamp(42px,7vw,80px);color:#07366d;margin:0}h2{color:#07366d;margin-top:70px}.lead{font-size:20px;color:#5c6b7d;max-width:760px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid #dce5f0;padding:22px;border-radius:12px}@media(max-width:700px){.grid{grid-template-columns:1fr}}</style></head><body><header><strong>Diego Lauri</strong><nav><a href="#portfolio">Portfolio</a><a href="#platforms">Platforms</a><a href="#contact">Connect</a></nav></header><main><p>PROFESSIONAL PORTFOLIO</p><h1>AI data quality, technical support, data analysis and business operations.</h1><p class="lead">Structured, practical support for reliable outcomes.</p><section id="portfolio"><h2>Portfolios and practical experience</h2><div class="grid"><div class="card"><h3>AI Data Quality</h3><p>Evaluation and quality workflows.</p></div><div class="card"><h3>Technical Support</h3><p>Troubleshooting and user support.</p></div><div class="card"><h3>Data & Operations</h3><p>Analysis and business support.</p></div></div></section><section id="platforms"><h2>Portfolio platforms</h2><p>GitHub, LinkedIn and additional professional resources.</p></section><section id="contact"><h2>Contact me</h2><p><a href="mailto:dlyance@gmail.com">dlyance@gmail.com</a></p></section></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Diego Lauri | Portfolio</title>
+  <style>
+    :root{--navy:#062d5b;--blue:#0876d1;--gold:#d6a62a;--ink:#132238;--muted:#5c6b7d;--line:#dce5f0;--soft:#f5f9ff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+    header{min-height:76px;padding:12px 6%;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96)}
+    .brand{display:flex;align-items:center;gap:13px;color:var(--navy);text-decoration:none;white-space:nowrap}
+    .monogram{display:grid;place-items:center;width:53px;height:53px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--blue));border:2px solid var(--gold);color:#fff;font-size:1.45rem;font-weight:800;letter-spacing:-.11em;box-shadow:0 5px 14px rgba(6,45,91,.18)}
+    .brand-name{font-size:clamp(1.22rem,2vw,1.55rem);font-weight:800;letter-spacing:-.03em}
+    nav{display:flex;align-items:center;justify-content:flex-end;gap:4px;flex-wrap:wrap}
+    nav a,button{font:inherit}
+    nav a{padding:9px 10px;color:var(--navy);text-decoration:none;font-weight:700;border-radius:7px}
+    nav a:hover,nav a:focus-visible{background:var(--soft);color:var(--blue);outline:none}
+    .language-toggle{margin-left:5px;padding:9px 12px;border:1px solid var(--navy);border-radius:7px;background:#fff;color:var(--navy);font-weight:700;cursor:pointer}
+    .language-toggle:hover,.language-toggle:focus-visible{background:var(--navy);color:#fff;outline:2px solid var(--gold);outline-offset:2px}
+    main{max-width:1200px;margin:auto;padding:0 6% 70px}
+    .hero{padding:clamp(46px,8vw,100px) 0 clamp(52px,8vw,94px);max-width:900px}
+    .eyebrow{margin:0 0 13px;color:var(--blue);font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    h1{max-width:980px;font-size:clamp(2.7rem,6.5vw,5rem);line-height:1.04;letter-spacing:-.052em;color:var(--navy);margin:0}
+    h2{color:var(--navy);margin-top:70px}
+    .lead{margin:23px 0 0;font-size:clamp(1.08rem,2.2vw,1.3rem);color:var(--muted);max-width:760px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:29px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:11px 17px;border-radius:8px;border:2px solid var(--navy);background:var(--navy);color:#fff;text-decoration:none;font-weight:800}
+    .button:hover,.button:focus-visible{background:var(--blue);border-color:var(--blue);outline:2px solid var(--gold);outline-offset:2px}
+    .button-secondary{background:#fff;color:var(--navy)}
+    .button-secondary:hover,.button-secondary:focus-visible{background:var(--soft);color:var(--blue);border-color:var(--blue)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid var(--line);padding:22px;border-radius:12px}
+    @media(max-width:760px){
+      header{padding:10px 5%;align-items:flex-start;flex-direction:column;gap:10px}
+      nav{width:100%;justify-content:flex-start;gap:1px}
+      nav a{padding:7px 8px}
+      .language-toggle{margin-left:auto;padding:7px 10px}
+      main{padding:0 5% 52px}
+      .hero{padding:50px 0 55px}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .button{width:100%}
+      .grid{grid-template-columns:1fr}
+    }
+    @media(max-width:420px){
+      .monogram{width:47px;height:47px;font-size:1.28rem}
+      .brand-name{font-size:1.17rem}
+      nav{font-size:.92rem}
+      .language-toggle{margin-left:0}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#top" aria-label="Diego Lauri portfolio home">
+      <span class="monogram" aria-hidden="true">DL</span>
+      <span class="brand-name">Diego Lauri</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Connect</a>
+      <a href="#platforms">Platforms</a>
+      <button class="language-toggle" type="button" aria-label="Switch to Spanish">Spanish</button>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">15+ YEARS OF WORK EXPERIENCE</p>
+      <h1 id="hero-title">AI data quality, technical support, data analysis and business operations.</h1>
+      <p class="lead">Structured, practical support for reliable outcomes.</p>
+      <div class="hero-actions">
+        <a class="button" href="#portfolio">View portfolio</a>
+        <a class="button button-secondary" href="#contact">Connect</a>
+      </div>
+    </section>
+    <section id="portfolio"><h2>Portfolios and practical experience</h2><div class="grid"><div class="card"><h3>AI Data Quality</h3><p>Evaluation and quality workflows.</p></div><div class="card"><h3>Technical Support</h3><p>Troubleshooting and user support.</p></div><div class="card"><h3>Data &amp; Operations</h3><p>Analysis and business support.</p></div></div></section>
+    <section id="platforms"><h2>Portfolio platforms</h2><p>GitHub, LinkedIn and additional professional resources.</p></section>
+    <section id="contact"><h2>Contact me</h2><p><a href="mailto:dlyance@gmail.com">dlyance@gmail.com</a></p></section>
+  </main>
+  <script>
+    const toggle=document.querySelector('.language-toggle');
+    let lang='en';
+    toggle.addEventListener('click',()=>{
+      lang=lang==='en'?'es':'en';
+      document.documentElement.lang=lang;
+      toggle.textContent=lang==='en'?'Spanish':'English';
+      toggle.setAttribute('aria-label',lang==='en'?'Switch to Spanish':'Cambiar a inglés');
+    });
+  </script>
+</body>
+</html>
