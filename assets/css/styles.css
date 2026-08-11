@@ -494,6 +494,74 @@ main {
   margin-top: 1.4rem;
 }
 
+.contact-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.field-group {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contact-form label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: 1rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(7, 29, 54, 0.14);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+
+.contact-form textarea {
+  min-height: 11rem;
+  resize: vertical;
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  border-color: var(--blue);
+  outline: none;
+}
+
+.contact-form input:invalid,
+.contact-form textarea:invalid {
+  border-color: var(--gold);
+}
+
+.form-status {
+  min-height: 2.5rem;
+  padding: 1rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(7, 29, 54, 0.08);
+  background: #f7f9fc;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.privacy-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .platform-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;

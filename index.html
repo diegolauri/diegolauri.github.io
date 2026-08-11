@@ -18,12 +18,10 @@
     <div class="page-inner header-inner">
       <a class="brand" href="/" aria-label="Diego Lauri homepage">
         <span class="brand-logo" aria-hidden="true">
-          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <rect x="2" y="2" width="68" height="68" rx="18" fill="#071D36" stroke="#F2BF43" stroke-width="4"/>
-            <rect x="18" y="18" width="10" height="36" rx="4" fill="#F2BF43"/>
-            <path d="M30 18h15a12 12 0 0 1 0 24H30V18Zm0 24h15a12 12 0 0 1 0 24H30V42Z" fill="#0D5DA8"/>
-            <path d="M18 46h22v8H18z" fill="#F2BF43"/>
-            <path d="M30 18h10a8 8 0 0 1 0 16H30V18Zm0 24h10a8 8 0 0 1 0 16H30V42Z" fill="#FFFFFF" opacity="0.12"/>
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" width="56" height="56" aria-label="D L monogram">
+            <rect x="1" y="1" width="62" height="62" rx="12" fill="#071D36" stroke="#F2BF43" stroke-width="2"/>
+            <text x="50%" y="52%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="30" fill="#F2BF43">D</text>
+            <text x="50%" y="32%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="18" fill="#FFFFFF">L</text>
           </svg>
         </span>
         <span class="brand-title">
@@ -32,7 +30,7 @@
         </span>
       </a>
       <div class="nav-wrap">
-        <nav data-i18n="nav.ariaLabel" data-i18n-attr="aria-label">
+        <nav aria-label="Primary navigation" data-i18n="nav.ariaLabel" data-i18n-attr="aria-label">
           <a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a>
           <a href="#connect" data-i18n="nav.connect">Connect</a>
           <a href="#platforms" data-i18n="nav.platforms">Platforms</a>
@@ -52,7 +50,6 @@
         <p class="hero-copy" data-i18n="hero.desc">Bilingual English-Spanish professional with experience in technology, data, technical support, business operations, cybersecurity, project coordination, and process improvement.</p>
         <div class="hero-actions">
           <a class="hero-button" href="#portfolio" data-i18n="hero.view">View portfolio</a>
-          <a class="button-secondary" href="#connect" data-i18n="hero.connect">Connect: EN / ES</a>
         </div>
       </div>
     </section>
@@ -100,8 +97,8 @@
         </a>
         <a class="card" href="portfolio/business-support/">
           <strong>07</strong>
-          <h3 data-i18n="card.business.title">Business Support</h3>
-          <p data-i18n="card.business.desc">Research, documentation, coordination, CRM support, and operational workflow improvement.</p>
+          <h3 data-i18n="card.business.title">Business Administration</h3>
+          <p data-i18n="card.business.desc">Administrative coordination, record management, process support, CRM workflows, and operational organization.</p>
           <span class="card-footer" data-i18n="card.explore">Explore area →</span>
         </a>
         <a class="card" href="portfolio/ai-data-quality/">
@@ -161,12 +158,42 @@
           <h2 data-i18n="contact.ctaHeading">Professional inquiries</h2>
           <div class="contact-actions">
             <a class="button-primary" href="mailto:diego.lauriy@gmail.com" data-i18n="contact.primary">Email me</a>
-            <a class="button-secondary" href="mailto:diego.lauriy@gmail.com" data-i18n="contact.secondary">Send a message</a>
             <a class="button-secondary" href="https://www.linkedin.com/in/diegolauri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a class="button-secondary" href="https://github.com/diegolauri" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
-          <p class="contact-note" data-i18n="contact.note">WhatsApp and Snapchat are available upon request.</p>
         </article>
+
+        <form id="contact-form" class="contact-card contact-form" method="post" data-form-provider="pending-approval" aria-labelledby="contact-form-heading">
+          <h2 id="contact-form-heading" data-i18n="contact.form.heading">Send a message</h2>
+          <div class="form-status" id="contact-form-status" aria-live="polite"></div>
+
+          <div class="field-group">
+            <label for="contact-name" data-i18n="contact.name">Name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Name" data-en="Name" data-es="Nombre" data-i18n-placeholder />
+          </div>
+
+          <div class="field-group">
+            <label for="contact-email" data-i18n="contact.email">Email address</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required placeholder="Email address" data-en="Email address" data-es="Dirección de correo electrónico" data-i18n-placeholder />
+          </div>
+
+          <div class="field-group">
+            <label for="contact-subject" data-i18n="contact.subject">Subject</label>
+            <input id="contact-subject" name="subject" type="text" autocomplete="off" required placeholder="Subject" data-en="Subject" data-es="Asunto" data-i18n-placeholder />
+          </div>
+
+          <div class="field-group">
+            <label for="contact-message" data-i18n="contact.message">Message</label>
+            <textarea id="contact-message" name="message" autocomplete="off" required placeholder="Message" data-en="Message" data-es="Mensaje" data-i18n-placeholder></textarea>
+          </div>
+
+          <div class="field-group honeypot" aria-hidden="true">
+            <label for="contact-website">Leave this field blank</label>
+            <input id="contact-website" name="website" type="text" autocomplete="off" tabindex="-1" />
+          </div>
+
+          <p class="privacy-note" data-i18n="contact.privacy">Please do not include confidential, personal, financial, or sensitive information in this form.</p>
+          <button type="submit" class="button-primary" data-i18n="contact.send">Send message</button>
+        </form>
       </div>
     </section>
 
@@ -176,20 +203,16 @@
       <p class="section-intro" data-i18n="platforms.copy">Public platforms, projects, and professional resources.</p>
       <div class="platform-grid">
         <a class="platform-link" href="https://www.youtube.com/@diegolauri" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <span class="platform-label" aria-disabled="true">Notion · coming soon</span>
+        <span class="platform-label" aria-disabled="true">Notion</span>
         <a class="platform-link" href="https://github.com/diegolauri" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="platform-label" aria-disabled="true">Tableau · coming soon</span>
-        <span class="platform-label" aria-disabled="true">Claude · coming soon</span>
-        <span class="platform-label" aria-disabled="true">Kaggle · coming soon</span>
-        <span class="platform-label" aria-disabled="true">Behance · coming soon</span>
-        <span class="platform-label" aria-disabled="true">GitLab · coming soon</span>
+        <span class="platform-label" aria-disabled="true">Tableau</span>
+        <span class="platform-label" aria-disabled="true">Kaggle</span>
+        <span class="platform-label" aria-disabled="true">Behance</span>
+        <span class="platform-label" aria-disabled="true">GitLab</span>
       </div>
     </section>
 
-    <div class="booking">
-      <span>View payments & bookings</span>
-      <a href="#connect" data-i18n="booking.link">Contact Diego Lauri →</a>
-    </div>
+    <!-- booking/payments block removed per content policy (preserve non-destructive edits) -->
 
     <div class="back-to-top-wrapper">
       <a class="back-to-top" href="#top" data-i18n="footer.back">Back to top ↑</a>

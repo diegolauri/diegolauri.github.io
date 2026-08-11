@@ -24,8 +24,6 @@ const translations = {
   'es.hero.desc': 'Profesional bilingüe inglés-español con experiencia en tecnología, datos, soporte técnico, operaciones de negocio, ciberseguridad, coordinación de proyectos y mejora de procesos.',
   'hero.view': 'View portfolio',
   'es.hero.view': 'Ver portafolio',
-  'hero.connect': 'Connect: EN / ES',
-  'es.hero.connect': 'Conectar: EN / ES',
   'portfolio.label': 'Portfolio areas',
   'es.portfolio.label': 'Áreas de portafolio',
   'portfolio.title': 'Portfolios and practical experience',
@@ -58,10 +56,10 @@ const translations = {
   'es.card.accounting.title': 'Contabilidad',
   'card.accounting.desc': 'Financial record support, invoice workflows, reconciliation preparation, and administrative reporting.',
   'es.card.accounting.desc': 'Apoyo de registros financieros, flujos de trabajo de facturación, preparación de conciliaciones e informes administrativos.',
-  'card.business.title': 'Business Support',
-  'es.card.business.title': 'Soporte empresarial',
-  'card.business.desc': 'Research, documentation, coordination, CRM support, and operational workflow improvement.',
-  'es.card.business.desc': 'Investigación, documentación, coordinación, soporte CRM y mejora de flujos operativos.',
+  'card.business.title': 'Business Administration',
+  'es.card.business.title': 'Administración de empresas',
+  'card.business.desc': 'Administrative coordination, record management, process support, CRM workflows, and operational organization.',
+  'es.card.business.desc': 'Coordinación administrativa, gestión de registros, apoyo de procesos, flujos de trabajo CRM y organización operativa.',
   'card.ai.title': 'AI Data Quality',
   'es.card.ai.title': 'Calidad de datos de IA',
   'card.ai.desc': 'Bilingual model-output review, labeling consistency, quality evaluation, and documented rationale.',
@@ -110,10 +108,26 @@ const translations = {
   'es.contact.label': 'CONTACTO',
   'contact.title': 'Contact me',
   'es.contact.title': 'Contáctame',
-  'contact.copy': 'For employment opportunities, independent professional engagements, and contract-based work.',
-  'es.contact.copy': 'Para oportunidades de empleo, colaboraciones profesionales independientes y trabajo por contrato.',
+  'contact.copy': 'For professional opportunities, projects, training, or community collaboration.',
+  'es.contact.copy': 'Para oportunidades profesionales, proyectos, formación o colaboración comunitaria.',
   'contact.ctaHeading': 'Professional inquiries',
   'es.contact.ctaHeading': 'Consultas profesionales',
+  'contact.form.heading': 'Send a message',
+  'es.contact.form.heading': 'Enviar un mensaje',
+  'contact.name': 'Name',
+  'es.contact.name': 'Nombre',
+  'contact.email': 'Email address',
+  'es.contact.email': 'Dirección de correo electrónico',
+  'contact.subject': 'Subject',
+  'es.contact.subject': 'Asunto',
+  'contact.message': 'Message',
+  'es.contact.message': 'Mensaje',
+  'contact.privacy': 'Please do not include confidential, personal, financial, or sensitive information in this form.',
+  'es.contact.privacy': 'Por favor, no incluyas información confidencial, personal, financiera o sensible en este formulario.',
+  'contact.send': 'Send message',
+  'es.contact.send': 'Enviar mensaje',
+  'contact.form.status': 'Form UI only — no message sent (pending activation).',
+  'es.contact.form.status': 'Formulario sólo de interfaz — ningún mensaje enviado (pendiente de activación).',
   'contact.note': 'WhatsApp and Snapchat are available upon request.',
   'es.contact.note': 'WhatsApp y Snapchat están disponibles a pedido.',
   'contact.primary': 'Email me',
@@ -175,7 +189,17 @@ function applyLanguage(lang) {
 
   bilingualElements.forEach((el) => {
     const value = el.dataset[lang];
-    if (value !== undefined) {
+    if (value === undefined) return;
+
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      if (el.dataset.i18nPlaceholder !== undefined) {
+        el.placeholder = value;
+      } else if (el.type === 'submit' || el.type === 'button') {
+        el.value = value;
+      } else {
+        el.textContent = value;
+      }
+    } else {
       el.textContent = value;
     }
   });
@@ -193,6 +217,36 @@ if (langToggle) {
     const nextLang = document.documentElement.lang === 'es' ? 'en' : 'es';
     applyLanguage(nextLang);
     setPreferredLanguage(nextLang);
+  });
+}
+
+const contactForm = document.getElementById('contact-form');
+const contactFormStatus = document.getElementById('contact-form-status');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (contactFormStatus) {
+      const statusKey = document.documentElement.lang === 'es' ? 'es.contact.form.status' : 'contact.form.status';
+      contactFormStatus.textContent = translations[statusKey] || '';
+    }
+
+    Array.from(contactForm.querySelectorAll('input, textarea')).forEach((field) => {
+      if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+        if (!field.checkValidity()) {
+          field.classList.add('invalid');
+        }
+      }
+    });
+  });
+
+  contactForm.addEventListener('input', (event) => {
+    const field = event.target;
+    if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+      if (field.checkValidity()) {
+        field.classList.remove('invalid');
+      }
+    }
   });
 }
 
