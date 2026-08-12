@@ -14,10 +14,18 @@
     <div class="page-inner header-inner">
       <a class="brand" href="/">
         <span class="brand-logo" aria-hidden="true">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <rect x="1" y="1" width="62" height="62" rx="14" fill="#071D36" stroke="#F2BF43" stroke-width="2"/>
-            <path d="M18 47V20h8v19l18-19h9v28h-7V31L26 52H18Z" fill="#0D5DA8"/>
-            <path d="M18 47V20h8v19l18-19h3v24h-5V35L26 54H18Z" fill="#fff" opacity="0.85"/>
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="bgGradIT" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#0b2a56" />
+                <stop offset="100%" stop-color="#071d36" />
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="62" height="62" rx="12" fill="url(#bgGradIT)" stroke="#BFA24A" stroke-width="1.4" />
+            <path d="M18 12 C18 12 30 12 36 20 C42 28 36 44 24 44 L18 44 Z" fill="#0D5DA8" opacity="0.98" />
+            <path d="M20 18 C28 18 34 24 34 32 C34 40 28 44 22 44 L20 44 Z" fill="#072B4A" opacity="0.9" />
+            <path d="M38 14 L38 46 L52 46" stroke="#F2BF43" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            <circle cx="50" cy="12" r="3.2" fill="#F2BF43" />
           </svg>
         </span>
         <span class="brand-title">
