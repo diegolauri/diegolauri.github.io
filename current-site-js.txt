@@ -103,27 +103,33 @@ const translations = {
   'standards.professional.heading': 'Privacy and confidentiality come first.',
   'es.standards.professional.heading': 'La privacidad y la confidencialidad son lo primero.',
   'standards.professional.copy': 'I never use employer, client, or organizational data without explicit authorization. Portfolio examples contain anonymized, fictional, generalized, or modified information and never include passwords, personal data, private screenshots, proprietary materials, or sensitive information.',
-  'es.standards.professional.copy': 'Nunca utilizo datos de empleadores, clientes u organizaciones sin autorización expresa. Los ejemplos del portafolio contienen información anonimizada, ficticia, generalizada o modificada y nunca incluyen contraseñas, datos personales, capturas de pantalla privadas, materiales propietarios ni información sensible.',
+  'es.standards.professional.copy': 'Nunca utilizo datos de empleadores, clientes u organizaciones sin autorización expresa. Los ejemplos del portafolio contienen información anonimizada, ficticia, generalizada o modificada y nunca incluyen contraseñas, datos personales, capturas de pantalla privadas, materiales propietarios ni informacion sensible.',
   'contact.label': 'CONNECT',
   'es.contact.label': 'CONTACTO',
   'contact.title': 'Contact me',
   'es.contact.title': 'Contáctame',
   'contact.copy': 'For professional opportunities, projects, training, or community collaboration.',
-  'es.contact.copy': 'Para oportunidades de empleo, solicitudes de proyectos, y colaboración comunitaria.',
+  'es.contact.copy': 'Para oportunidades profesionales, proyectos, formación o colaboración comunitaria.',
   'contact.ctaHeading': 'Professional inquiries',
   'es.contact.ctaHeading': 'Consultas profesionales',
   'contact.form.heading': 'Send a message',
   'es.contact.form.heading': 'Enviar un mensaje',
-  'contact.pro.intro': 'For project proposals, professional collaborations, or training requests.',
-  'es.contact.pro.intro': 'Para propuestas de proyecto, colaboraciones profesionales o solicitudes de formación.',
+  'contact.pro.intro': 'For project proposals, professional collaborations, or training requests. Include a brief scope, target timeline, and preferred contact method.',
+  'es.contact.pro.intro': 'Para propuestas de proyecto, colaboraciones profesionales o solicitudes de formacion. Incluye un breve alcance, plazo previsto y metodo de contacto preferido.',
+  'contact.pro.scopeHeading': 'Scope',
+  'es.contact.pro.scopeHeading': 'Alcance',
+  'contact.pro.scope': 'Short-term consulting, project support, training design, and operational handoffs with evidence-focused deliverables.',
+  'es.contact.pro.scope': 'Consultoria a corto plazo, apoyo a proyectos, diseno de formacion y transferencia operativa con entregables centrados en evidencia.',
+  'contact.pro.processHeading': 'Process',
+  'es.contact.pro.processHeading': 'Proceso',
+  'contact.pro.process': 'Initial scoping email → brief call → written proposal. I aim to clarify objectives and expected outcomes before any commitment.',
+  'es.contact.pro.process': 'Correo de alcance inicial → llamada breve → propuesta escrita. Busco aclarar objetivos y resultados esperados antes de cualquier compromiso.',
   'contact.pro.contactHeading': 'Contact',
   'es.contact.pro.contactHeading': 'Contacto',
-  'contact.responseTime': 'Typical response: within 24 business hours.',
-  'es.contact.responseTime': 'Respuesta típica: dentro de 24 horas hábiles.',
+  'contact.responseTime': 'Typical response time: 1–3 business days.',
+  'es.contact.responseTime': 'Tiempo de respuesta tipico: 1–3 dias laborables.',
   'contact.pro.note': 'Do not send confidential or sensitive information here; use an NDA or an approved secure channel if needed.',
-  'es.contact.pro.note': 'No envíes información confidencial o sensible aquí; utiliza un NDA o un canal seguro aprobado si es necesario.',
-  'contact.resume': 'Resume and references available upon request.',
-  'es.contact.resume': 'Currículum y referencias disponibles a pedido.',
+  'es.contact.pro.note': 'No envies informacion confidencial o sensible aqui; utiliza un NDA o un canal seguro aprobado si es necesario.',
   'contact.name': 'Name',
   'es.contact.name': 'Nombre',
   'contact.email': 'Email address',
@@ -133,18 +139,13 @@ const translations = {
   'contact.message': 'Message',
   'es.contact.message': 'Mensaje',
   'contact.privacy': 'Please do not include confidential, personal, financial, or sensitive information in this form.',
-  'es.contact.privacy': 'No incluyas información confidencial, personal, financiera ni sensible en este formulario.',
+  'es.contact.privacy': 'Por favor, no incluyas información confidencial, personal, financiera o sensible en este formulario.',
   'contact.send': 'Send message',
   'es.contact.send': 'Enviar mensaje',
   'contact.form.status': 'Form UI only — no message sent (pending activation).',
   'es.contact.form.status': 'Formulario sólo de interfaz — ningún mensaje enviado (pendiente de activación).',
-  'contact.form.sending': 'Sending message…',
-  'es.contact.form.sending': 'Enviando mensaje…',
-  'contact.form.success': 'Message sent — thank you!',
-  'es.contact.form.success': 'Mensaje enviado — ¡gracias!',
-  'contact.form.error': 'Unable to send message — please try again later.',
-  'es.contact.form.error': 'No se pudo enviar el mensaje — inténtalo de nuevo más tarde.',
-  /* removed visible WhatsApp/Snapchat mention to comply with requirements */
+  'contact.note': 'WhatsApp and Snapchat are available upon request.',
+  'es.contact.note': 'WhatsApp y Snapchat están disponibles a pedido.',
   'contact.primary': 'Email me',
   'es.contact.primary': 'Enviar correo',
   'contact.secondary': 'Send a message',
@@ -238,64 +239,20 @@ if (langToggle) {
 const contactForm = document.getElementById('contact-form');
 const contactFormStatus = document.getElementById('contact-form-status');
 
-function setContactStatus(key) {
-  if (!contactFormStatus) return;
-  const isEs = document.documentElement.lang === 'es';
-  const statusKey = isEs ? `es.${key}` : key;
-  contactFormStatus.textContent = translations[statusKey] || '';
-}
-
 if (contactForm) {
-  // Use client-side validation and prevent native submission so we can
-  // optionally send to Formspree when the endpoint is provided.
-  contactForm.setAttribute('novalidate', 'novalidate');
-
   contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
-    // Honeypot handling: if filled, treat as spam and silently succeed
-    const honeypot = contactForm.querySelector('input[name="website"]');
-    if (honeypot && honeypot.value.trim() !== '') {
-      setContactStatus('contact.form.success');
-      contactForm.reset();
-      return;
+    if (contactFormStatus) {
+      const statusKey = document.documentElement.lang === 'es' ? 'es.contact.form.status' : 'contact.form.status';
+      contactFormStatus.textContent = translations[statusKey] || '';
     }
 
-    // Validate fields
-    if (!contactForm.checkValidity()) {
-      contactForm.reportValidity();
-      Array.from(contactForm.querySelectorAll('input, textarea')).forEach((field) => {
-        if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
-          if (!field.checkValidity()) field.classList.add('invalid');
+    Array.from(contactForm.querySelectorAll('input, textarea')).forEach((field) => {
+      if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+        if (!field.checkValidity()) {
+          field.classList.add('invalid');
         }
-      });
-      return;
-    }
-
-    // Endpoint activation: if a Formspree endpoint is provided via
-    // `data-formspree-endpoint` on the form (or the form `action`), use it.
-    const endpoint = contactForm.dataset.formspreeEndpoint || contactForm.getAttribute('action') || '';
-    if (!endpoint) {
-      setContactStatus('contact.form.status');
-      return;
-    }
-
-    setContactStatus('contact.form.sending');
-
-    const formData = new FormData(contactForm);
-    fetch(endpoint, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' },
-    }).then((response) => {
-      if (response.ok) {
-        setContactStatus('contact.form.success');
-        contactForm.reset();
-      } else {
-        setContactStatus('contact.form.error');
       }
-    }).catch(() => {
-      setContactStatus('contact.form.error');
     });
   });
 

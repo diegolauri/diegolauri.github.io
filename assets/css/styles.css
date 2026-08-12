@@ -2,6 +2,7 @@
 :root {
   --navy: #071D36;
   --blue: #0D5DA8;
+  --amber: #D49A2A;
   --teal: #129B91;
   --gold: #F2BF43;
   --paper: #F5F8FB;
@@ -119,8 +120,57 @@ header {
 }
 
 .brand-logo svg {
-  width: 32px;
-  height: 32px;
+  width: clamp(36px, 6vw, 56px);
+  height: auto;
+}
+
+.contact-card-intro {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-list li {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.contact-mini {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.contact-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+
+.contact-meta .meta-item h3 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.contact-methods .contact-actions {
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 1080px) {
+  .contact-meta {
+    grid-template-columns: 1fr;
+  }
 }
 
 .brand-title {
@@ -253,7 +303,7 @@ main {
 .hero-copy {
   margin: 0;
   max-width: 840px;
-  color: #d4e5f8;
+  color: #e9f6ff;
   font-size: clamp(1rem, 1.1vw, 1.22rem);
   line-height: 1.8;
 }
@@ -306,6 +356,28 @@ main {
 
 .section {
   padding: 2.8rem 0;
+}
+
+/* Make the connect/contact section full-bleed to match the preview */
+#connect {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: 2.8rem;
+  padding-bottom: 2.8rem;
+}
+
+@media (max-width: 880px) {
+  #connect {
+    padding-left: 2.6vw;
+    padding-right: 2.6vw;
+  }
 }
 
 .section-heading,
@@ -419,16 +491,17 @@ main {
   background: var(--blue);
 }
 
+/* Portfolio card accent colors (1-based index) */
 .card:nth-child(2)::before { background: var(--teal); }
-.card:nth-child(3)::before { background: var(--gold); }
+.card:nth-child(3)::before { background: var(--amber); }
 .card:nth-child(4)::before { background: var(--navy); }
 .card:nth-child(5)::before { background: var(--blue); }
 .card:nth-child(6)::before { background: var(--teal); }
-.card:nth-child(7)::before { background: var(--gold); }
+.card:nth-child(7)::before { background: var(--amber); }
 .card:nth-child(8)::before { background: var(--navy); }
 .card:nth-child(9)::before { background: var(--blue); }
 .card:nth-child(10)::before { background: var(--teal); }
-.card:nth-child(11)::before { background: var(--gold); }
+.card:nth-child(11)::before { background: var(--amber); }
 .card:nth-child(12)::before { background: var(--navy); }
 
 .section-dark {
@@ -715,7 +788,8 @@ footer {
 
 .note-text {
   font-size: 0.98rem;
-  color: var(--muted);
+  color: var(--ink);
+  font-weight: 700;
 }
 
 @media (max-width: 1080px) {
