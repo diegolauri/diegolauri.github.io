@@ -18,12 +18,10 @@
     <div class="page-inner header-inner">
       <a class="brand" href="/" aria-label="Diego Lauri homepage">
         <span class="brand-logo" aria-hidden="true">
-          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <rect x="2" y="2" width="68" height="68" rx="18" fill="#071D36" stroke="#F2BF43" stroke-width="4"/>
-            <rect x="18" y="18" width="10" height="36" rx="4" fill="#F2BF43"/>
-            <path d="M30 18h15a12 12 0 0 1 0 24H30V18Zm0 24h15a12 12 0 0 1 0 24H30V42Z" fill="#0D5DA8"/>
-            <path d="M18 46h22v8H18z" fill="#F2BF43"/>
-            <path d="M30 18h10a8 8 0 0 1 0 16H30V18Zm0 24h10a8 8 0 0 1 0 16H30V42Z" fill="#FFFFFF" opacity="0.12"/>
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <rect x="2" y="2" width="60" height="60" rx="16" fill="#071D36"/>
+            <path d="M14 16h8c10 0 16 6 16 16s-6 16-16 16h-8V16Zm8 8v16c6 0 8-3 8-8s-2-8-8-8Z" fill="#0D5DA8"/>
+            <path d="M42 16h8v24h10v8H42V16Z" fill="#F2BF43"/>
           </svg>
         </span>
         <span class="brand-title">
@@ -52,9 +50,13 @@
         <p class="hero-copy" data-i18n="hero.desc">Bilingual English-Spanish professional with experience in technology, data, technical support, business operations, cybersecurity, project coordination, and process improvement.</p>
         <div class="hero-actions">
           <a class="hero-button" href="#portfolio" data-i18n="hero.view">View portfolio</a>
-          <a class="button-secondary" href="#connect" data-i18n="hero.connect">Connect: EN / ES</a>
+          <a class="button-secondary" href="https://www.linkedin.com/in/diegolauri" target="_blank" rel="noopener noreferrer" data-i18n="hero.linkedin">LinkedIn</a>
         </div>
       </div>
+    </section>
+
+    <section class="availability-banner">
+      <p data-i18n="availability.notice">Resume, references, and credentials are available upon request.</p>
     </section>
 
     <section id="portfolio" class="section section-target">
@@ -165,7 +167,6 @@
             <a class="button-secondary" href="https://www.linkedin.com/in/diegolauri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="button-secondary" href="https://github.com/diegolauri" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
-          <p class="contact-note" data-i18n="contact.note">WhatsApp and Snapchat are available upon request.</p>
         </article>
       </div>
     </section>
@@ -174,15 +175,41 @@
       <p class="eyebrow" data-i18n="platforms.label">PORTFOLIO PLATFORMS</p>
       <h2 class="section-heading" data-i18n="platforms.title">Find my work online.</h2>
       <p class="section-intro" data-i18n="platforms.copy">Public platforms, projects, and professional resources.</p>
-      <div class="platform-grid">
-        <a class="platform-link" href="https://www.youtube.com/@diegolauri" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <span class="platform-label" aria-disabled="true">Notion · coming soon</span>
-        <a class="platform-link" href="https://github.com/diegolauri" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="platform-label" aria-disabled="true">Tableau · coming soon</span>
-        <span class="platform-label" aria-disabled="true">Claude · coming soon</span>
-        <span class="platform-label" aria-disabled="true">Kaggle · coming soon</span>
-        <span class="platform-label" aria-disabled="true">Behance · coming soon</span>
-        <span class="platform-label" aria-disabled="true">GitLab · coming soon</span>
+      <div class="platform-contact-grid">
+        <article class="platform-card">
+          <h3 data-i18n="platforms.list.title">Professional Platforms</h3>
+          <div class="platform-grid">
+            <a class="platform-link" href="https://www.youtube.com/@diegolauri" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <span class="platform-label" aria-disabled="true">Notion · coming soon</span>
+            <a class="platform-link" href="https://github.com/diegolauri" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="platform-label" aria-disabled="true">Tableau · coming soon</span>
+            <span class="platform-label" aria-disabled="true">Kaggle · coming soon</span>
+            <span class="platform-label" aria-disabled="true">Behance · coming soon</span>
+            <span class="platform-label" aria-disabled="true">GitLab · coming soon</span>
+            <span class="platform-label" aria-disabled="true">Figma · coming soon</span>
+          </div>
+        </article>
+        <article class="contact-card message-card">
+          <h3 data-i18n="message.title">Send a message</h3>
+          <p data-i18n="message.copy">This form stays in your browser and does not send data over the network.</p>
+          <form id="message-form" class="message-form" novalidate>
+            <label for="message-name" data-i18n="message.name">Name</label>
+            <input id="message-name" name="name" type="text" autocomplete="name">
+
+            <label for="message-email" data-i18n="message.email">Email</label>
+            <input id="message-email" name="email" type="email" autocomplete="email">
+
+            <label for="message-text" data-i18n="message.text">Message</label>
+            <textarea id="message-text" name="message" maxlength="2000" rows="5"></textarea>
+            <p id="message-counter" class="form-hint" aria-live="polite" data-i18n="message.counter">0/2000 characters</p>
+
+            <label for="message-files" data-i18n="message.files">Attachments (optional)</label>
+            <input id="message-files" name="files" type="file" multiple accept=".pdf,.docx,.xlsx,.png,.jpg,.jpeg">
+            <p class="form-hint" data-i18n="message.files.help">Up to 3 files. PDF, DOCX, XLSX, PNG, JPG, or JPEG. Max 5 MB each and 10 MB total.</p>
+            <p id="message-files-status" class="form-status" aria-live="polite" data-i18n="message.files.none">No files selected.</p>
+            <button class="button-primary" type="submit" data-i18n="message.review">Review locally</button>
+          </form>
+        </article>
       </div>
     </section>
 

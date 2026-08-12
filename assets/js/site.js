@@ -26,6 +26,10 @@ const translations = {
   'es.hero.view': 'Ver portafolio',
   'hero.connect': 'Connect: EN / ES',
   'es.hero.connect': 'Conectar: EN / ES',
+  'hero.linkedin': 'LinkedIn',
+  'es.hero.linkedin': 'LinkedIn',
+  'availability.notice': 'Resume, references, and credentials are available upon request.',
+  'es.availability.notice': 'Currículum, referencias y credenciales disponibles a solicitud.',
   'portfolio.label': 'Portfolio areas',
   'es.portfolio.label': 'Áreas de portafolio',
   'portfolio.title': 'Portfolios and practical experience',
@@ -128,6 +132,40 @@ const translations = {
   'es.platforms.title': 'Plataformas profesionales',
   'platforms.copy': 'Public profiles and selected portfolio resources.',
   'es.platforms.copy': 'Perfiles públicos y recursos seleccionados del portafolio.',
+  'platforms.list.title': 'Professional Platforms',
+  'es.platforms.list.title': 'Plataformas profesionales',
+  'message.title': 'Send a message',
+  'es.message.title': 'Enviar un mensaje',
+  'message.copy': 'This form stays in your browser and does not send data over the network.',
+  'es.message.copy': 'Este formulario permanece en tu navegador y no envía datos por la red.',
+  'message.name': 'Name',
+  'es.message.name': 'Nombre',
+  'message.email': 'Email',
+  'es.message.email': 'Correo electrónico',
+  'message.text': 'Message',
+  'es.message.text': 'Mensaje',
+  'message.counter': '0/2000 characters',
+  'es.message.counter': '0/2000 caracteres',
+  'message.files': 'Attachments (optional)',
+  'es.message.files': 'Archivos adjuntos (opcional)',
+  'message.files.help': 'Up to 3 files. PDF, DOCX, XLSX, PNG, JPG, or JPEG. Max 5 MB each and 10 MB total.',
+  'es.message.files.help': 'Hasta 3 archivos. PDF, DOCX, XLSX, PNG, JPG o JPEG. Máximo 5 MB por archivo y 10 MB en total.',
+  'message.files.none': 'No files selected.',
+  'es.message.files.none': 'No se seleccionaron archivos.',
+  'message.review': 'Review locally',
+  'es.message.review': 'Revisar localmente',
+  'message.files.error.count': 'Select up to 3 files.',
+  'es.message.files.error.count': 'Selecciona hasta 3 archivos.',
+  'message.files.error.type': 'Allowed file types: PDF, DOCX, XLSX, PNG, JPG, JPEG.',
+  'es.message.files.error.type': 'Tipos de archivo permitidos: PDF, DOCX, XLSX, PNG, JPG, JPEG.',
+  'message.files.error.each': 'Each file must be 5 MB or smaller.',
+  'es.message.files.error.each': 'Cada archivo debe ser de 5 MB o menos.',
+  'message.files.error.total': 'Total attachments must be 10 MB or less.',
+  'es.message.files.error.total': 'El total de archivos adjuntos debe ser de 10 MB o menos.',
+  'message.files.ok': '{count} file(s) selected ({size} MB total).',
+  'es.message.files.ok': '{count} archivo(s) seleccionados ({size} MB en total).',
+  'message.form.local': 'Local-only form: copy your message and send it by email when ready.',
+  'es.message.form.local': 'Formulario solo local: copia tu mensaje y envíalo por correo cuando esté listo.',
   'footer.copy': '© Diego Lauri',
   'es.footer.copy': '© Diego Lauri',
   'footer.back': 'Back to top ↑',
@@ -141,6 +179,31 @@ const translations = {
 const i18nElements = Array.from(document.querySelectorAll('[data-i18n]'));
 const bilingualElements = Array.from(document.querySelectorAll('[data-en]'));
 const langToggle = document.getElementById('lang-toggle');
+const heroTitle = document.getElementById('hero-heading');
+const messageForm = document.getElementById('message-form');
+const messageTextarea = document.getElementById('message-text');
+const messageCounter = document.getElementById('message-counter');
+const messageFilesInput = document.getElementById('message-files');
+const messageFilesStatus = document.getElementById('message-files-status');
+
+const fileLimits = {
+  maxFiles: 3,
+  maxEachBytes: 5 * 1024 * 1024,
+  maxTotalBytes: 10 * 1024 * 1024
+};
+const allowedFileExtensions = ['pdf', 'docx', 'xlsx', 'png', 'jpg', 'jpeg'];
+
+function getTranslation(key, lang) {
+  const localizedKey = lang === 'es' ? `es.${key}` : key;
+  return translations[localizedKey];
+}
+
+function formatTranslation(template, replacements) {
+  return Object.entries(replacements).reduce(
+    (result, [key, value]) => result.replaceAll(`{${key}}`, String(value)),
+    template
+  );
+}
 
 function getPreferredLanguage() {
   try {
@@ -164,7 +227,7 @@ function applyLanguage(lang) {
   i18nElements.forEach((el) => {
     const key = el.dataset.i18n;
     if (!key) return;
-    const translation = lang === 'es' ? translations[`es.${key}`] : translations[key];
+    const translation = getTranslation(key, lang);
     if (translation === undefined) return;
     if (el.dataset.i18nAttr === 'aria-label') {
       el.setAttribute('aria-label', translation);
@@ -185,6 +248,79 @@ function applyLanguage(lang) {
     langToggle.setAttribute('aria-label', lang === 'es' ? translations['es.language.toggle.ariaEnglish'] : translations['language.toggle.ariaSpanish']);
     langToggle.setAttribute('aria-pressed', lang === 'es');
   }
+
+  updateMessageCounter();
+  validateMessageFiles();
+  updateHeroTitleLayout();
+}
+
+function updateHeroTitleLayout() {
+  if (!heroTitle) return;
+  heroTitle.classList.remove('hero-title-single-line');
+  if (window.innerWidth < 1100) return;
+  heroTitle.classList.add('hero-title-single-line');
+  if (heroTitle.scrollWidth > heroTitle.clientWidth) {
+    heroTitle.classList.remove('hero-title-single-line');
+  }
+}
+
+function updateMessageCounter() {
+  if (!messageTextarea || !messageCounter) return;
+  const lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+  const currentLength = messageTextarea.value.length;
+  const maxLength = Number(messageTextarea.getAttribute('maxlength')) || 2000;
+  messageCounter.textContent = lang === 'es'
+    ? `${currentLength}/${maxLength} caracteres`
+    : `${currentLength}/${maxLength} characters`;
+}
+
+function getMessageFileError(files) {
+  if (files.length > fileLimits.maxFiles) {
+    return 'message.files.error.count';
+  }
+
+  let totalBytes = 0;
+  for (const file of files) {
+    const extension = file.name.toLowerCase().split('.').pop();
+    if (!extension || !allowedFileExtensions.includes(extension)) {
+      return 'message.files.error.type';
+    }
+    if (file.size > fileLimits.maxEachBytes) {
+      return 'message.files.error.each';
+    }
+    totalBytes += file.size;
+  }
+
+  if (totalBytes > fileLimits.maxTotalBytes) {
+    return 'message.files.error.total';
+  }
+
+  return '';
+}
+
+function validateMessageFiles() {
+  if (!messageFilesInput || !messageFilesStatus) return true;
+  const lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+  const files = Array.from(messageFilesInput.files || []);
+  messageFilesStatus.dataset.state = '';
+
+  if (files.length === 0) {
+    messageFilesStatus.textContent = getTranslation('message.files.none', lang);
+    return true;
+  }
+
+  const errorKey = getMessageFileError(files);
+  if (errorKey) {
+    messageFilesStatus.textContent = getTranslation(errorKey, lang);
+    messageFilesStatus.dataset.state = 'error';
+    return false;
+  }
+
+  const totalMb = (files.reduce((sum, file) => sum + file.size, 0) / (1024 * 1024)).toFixed(1);
+  const template = getTranslation('message.files.ok', lang);
+  messageFilesStatus.textContent = formatTranslation(template, { count: files.length, size: totalMb });
+  messageFilesStatus.dataset.state = 'ok';
+  return true;
 }
 
 if (langToggle) {
@@ -195,5 +331,29 @@ if (langToggle) {
     setPreferredLanguage(nextLang);
   });
 }
+
+if (messageTextarea) {
+  messageTextarea.addEventListener('input', updateMessageCounter);
+}
+
+if (messageFilesInput) {
+  messageFilesInput.addEventListener('change', () => {
+    validateMessageFiles();
+  });
+}
+
+if (messageForm) {
+  messageForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+    const isFilesValid = validateMessageFiles();
+    if (messageFilesStatus && isFilesValid) {
+      messageFilesStatus.textContent = getTranslation('message.form.local', lang);
+      messageFilesStatus.dataset.state = 'ok';
+    }
+  });
+}
+
+window.addEventListener('resize', updateHeroTitleLayout);
 
 applyLanguage(getPreferredLanguage());

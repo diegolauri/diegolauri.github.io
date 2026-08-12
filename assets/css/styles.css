@@ -11,7 +11,7 @@
   --line: #D9E3ED;
   --radius: 16px;
   --radius-sm: 12px;
-  --max-width: 1200px;
+  --max-width: 1280px;
 }
 
 *, *::before, *::after {
@@ -260,6 +260,9 @@ main {
 
 .hero-actions {
   margin-top: 1.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
 }
 
 .hero-button,
@@ -273,6 +276,12 @@ main {
   font-weight: 800;
   min-height: 3rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-actions .hero-button,
+.hero-actions .button-secondary {
+  width: 210px;
+  min-height: 3.25rem;
 }
 
 .hero-button,
@@ -328,7 +337,23 @@ main {
   margin: 0;
   color: var(--muted);
   line-height: 1.75;
-  font-size: 1rem;
+  font-size: clamp(1.02rem, 1.05vw, 1.12rem);
+}
+
+.availability-banner {
+  margin: 0 auto 2rem;
+  max-width: 880px;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(13, 93, 168, 0.18);
+  background: rgba(13, 93, 168, 0.07);
+  color: var(--navy);
+  text-align: center;
+  font-weight: 700;
+}
+
+.availability-banner p {
+  margin: 0;
 }
 
 .cards,
@@ -499,6 +524,68 @@ main {
   align-items: start;
 }
 
+.platform-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.platform-card,
+.message-card {
+  border-top: 3px solid rgba(13, 93, 168, 0.38);
+}
+
+.message-card {
+  border-top-color: rgba(242, 191, 67, 0.72);
+}
+
+.platform-card h3,
+.message-card h3 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+}
+
+.message-form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.message-form label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.message-form input,
+.message-form textarea {
+  width: 100%;
+  border: 1px solid rgba(7, 29, 54, 0.16);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+
+.message-form textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.form-hint,
+.form-status {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.form-status[data-state="ok"] {
+  color: #0f7a42;
+}
+
+.form-status[data-state="error"] {
+  color: #a13030;
+}
+
 .platform-list {
   display: grid;
   gap: 0.9rem;
@@ -654,6 +741,7 @@ footer {
   .cards,
   .standard-columns,
   .contact-grid,
+  .platform-contact-grid,
   .platform-grid,
   .panel-grid,
   .project-cards {
@@ -687,6 +775,12 @@ footer {
   .button-secondary,
   .back-to-top {
     width: 100%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .hero-title.hero-title-single-line {
+    white-space: nowrap;
   }
 }
 
