@@ -380,6 +380,27 @@ main {
   }
 }
 
+/* Allow the inner wrapper to expand inside the full-bleed connect section */
+#connect .page-inner {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#connect .contact-grid {
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 880px) {
+  #connect .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
 .section-heading,
 .page-title {
   margin: 0 0 1rem;
