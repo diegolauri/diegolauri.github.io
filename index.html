@@ -162,7 +162,139 @@
         </article>
       </div>
     </section>
+<section id="connect" class="section section-target">
+  <p class="eyebrow" data-i18n="contact.label">CONNECT</p>
 
+  <div class="contact-grid">
+    <article id="platforms" class="contact-card platform-card" aria-labelledby="platforms-heading">
+      <h2 id="platforms-heading" data-i18n="platforms.title">Professional platforms</h2>
+      <p data-i18n="platforms.copy">Public profiles and selected portfolio resources.</p>
+
+      <div class="platform-grid">
+        <a class="platform-link" href="https://github.com/diegolauri" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="platform-link" href="https://www.youtube.com/@diegolauri" target="_blank" rel="noopener noreferrer">YouTube</a>
+
+        <span class="platform-label" aria-disabled="true">Notion</span>
+        <span class="platform-label" aria-disabled="true">Tableau</span>
+        <span class="platform-label" aria-disabled="true">Kaggle</span>
+        <span class="platform-label" aria-disabled="true">Behance</span>
+        <span class="platform-label" aria-disabled="true">GitLab</span>
+        <span class="platform-label" aria-disabled="true">Figma</span>
+      </div>
+    </article>
+
+    <form id="contact-form" class="contact-card contact-form" method="post" data-form-provider="pending-approval" aria-labelledby="contact-form-heading">
+      <h2 id="contact-form-heading" data-i18n="contact.form.heading">Send a message</h2>
+
+      <div id="contact-form-status" class="form-status" aria-live="polite"></div>
+
+      <div class="field-group">
+        <label for="contact-name" data-i18n="contact.name">Name</label>
+        <input
+          id="contact-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          required
+          placeholder="Name"
+          data-en="Name"
+          data-es="Nombre"
+          data-i18n-placeholder
+        >
+      </div>
+
+      <div class="field-group">
+        <label for="contact-email" data-i18n="contact.email">Email address</label>
+        <input
+          id="contact-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          placeholder="Email address"
+          data-en="Email address"
+          data-es="Dirección de correo electrónico"
+          data-i18n-placeholder
+        >
+      </div>
+
+      <div class="field-group">
+        <label for="contact-subject" data-i18n="contact.subject">Subject</label>
+        <input
+          id="contact-subject"
+          name="subject"
+          type="text"
+          autocomplete="off"
+          required
+          placeholder="Subject"
+          data-en="Subject"
+          data-es="Asunto"
+          data-i18n-placeholder
+        >
+      </div>
+
+      <div class="field-group">
+        <label for="contact-message" data-i18n="contact.message">Message</label>
+        <textarea
+          id="contact-message"
+          name="message"
+          autocomplete="off"
+          required
+          maxlength="2000"
+          placeholder="Message"
+          data-en="Message"
+          data-es="Mensaje"
+          data-i18n-placeholder
+        ></textarea>
+
+        <div id="message-counter" class="helper-text" aria-live="polite">
+          0 / 2000 characters
+        </div>
+      </div>
+
+      <div class="field-group">
+        <input
+          id="contact-attachment"
+          name="attachment"
+          type="file"
+          accept=".pdf,.docx,.xlsx,.png,.jpg,.jpeg"
+          multiple
+          class="visually-hidden"
+          aria-describedby="attachment-hint"
+        >
+
+        <label for="contact-attachment" class="button-secondary" data-i18n="contact.attachment">
+          Attach files (optional)
+        </label>
+
+        <div id="attachment-hint" class="helper-text" data-i18n="contact.attachmentHint">
+          Up to 3 files, 5 MB each, 10 MB total.
+        </div>
+
+        <div id="attachment-status" class="helper-text" aria-live="polite"></div>
+      </div>
+
+      <div class="field-group honeypot" aria-hidden="true">
+        <label for="contact-website">Leave this field blank</label>
+        <input
+          id="contact-website"
+          name="website"
+          type="text"
+          autocomplete="off"
+          tabindex="-1"
+        >
+      </div>
+
+      <p class="privacy-note" data-i18n="contact.privacy">
+        Please do not include confidential, personal, financial, or sensitive information in this form.
+      </p>
+
+      <button type="submit" class="button-primary" data-i18n="contact.send">
+        Send message
+      </button>
+    </form>
+  </div>
+</section>
     <section id="connect" class="section section-target">
       <p class="eyebrow" data-i18n="contact.label">CONNECT</p>
       <h2 class="section-heading" data-i18n="contact.title">Contact me</h2>
