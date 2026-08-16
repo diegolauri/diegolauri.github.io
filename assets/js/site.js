@@ -124,6 +124,24 @@ const translations = {
   'es.contact.pro.note': 'No envíes información confidencial o sensible aquí; utiliza un NDA o un canal seguro aprobado si es necesario.',
   'contact.resume': 'Resume and references available upon request.',
   'es.contact.resume': 'Currículum y referencias disponibles a pedido.',
+    'availability.banner': 'Resume, references, and credentials are available upon request.',
+  'es.availability.banner': 'Currículum, referencias y credenciales disponibles a solicitud.',
+  'contact.attachment': 'Attach files (optional)',
+  'es.contact.attachment': 'Adjuntar archivos (opcional)',
+  'contact.attachmentHint': 'Up to 3 files, 5 MB each, 10 MB total.',
+  'es.contact.attachmentHint': 'Hasta 3 archivos, 5 MB cada uno, 10 MB en total.',
+  'contact.form.not_configured': 'Message sending is not configured.',
+  'es.contact.form.not_configured': 'El envío de mensajes no está configurado.',
+  'attachment.error.size': 'One or more files exceed the 5 MB limit.',
+  'es.attachment.error.size': 'Uno o más archivos superan el límite de 5 MB.',
+  'attachment.error.type': 'One or more files have an unsupported type.',
+  'es.attachment.error.type': 'Uno o más archivos tienen un formato no compatible.',
+  'attachment.error.count': 'You can only attach up to 3 files.',
+  'es.attachment.error.count': 'Solo puedes adjuntar hasta 3 archivos.',
+  'attachment.error.totalSize': 'Total size of attachments exceeds the 10 MB limit.',
+  'es.attachment.error.totalSize': 'El tamaño total de los archivos adjuntos supera el límite de 10 MB.',
+  'attachment.success': '{count} files selected',
+  'es.attachment.success': '{count} archivos seleccionados',
   'contact.name': 'Name',
   'es.contact.name': 'Nombre',
   'contact.email': 'Email address',
@@ -151,8 +169,8 @@ const translations = {
   'es.contact.secondary': 'Enviar un mensaje',
   'booking.link': 'Contact Diego Lauri →',
   'es.booking.link': 'Contactar a Diego Lauri →',
-  'platforms.label': 'PORTFOLIO PLATFORMS',
-  'es.platforms.label': 'PLATAFORMAS DE PORTAFOLIO',
+  'platforms.label': 'Professional Platforms',
+  'es.platforms.label': 'Plataformas profesionales',
   'platforms.title': 'Professional platforms',
   'es.platforms.title': 'Plataformas profesionales',
   'platforms.copy': 'Public profiles and selected portfolio resources.',
@@ -237,74 +255,122 @@ if (langToggle) {
 
 const contactForm = document.getElementById('contact-form');
 const contactFormStatus = document.getElementById('contact-form-status');
+const messageInput = document.getElementById('contact-message');
+const messageCounter = document.getElementById('message-counter');
+const attachmentInput = document.getElementById('contact-attachment');
+const attachmentStatus = document.getElementById('attachment-status');
+
+const allowedExtensions = ['.pdf', '.docx', '.xlsx', '.png', '.jpg', '.jpeg'];
+const allowedMimes = [
+  'application/pdf',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  'image/png',
+  'image/jpeg'
+];
 
 function setContactStatus(key) {
   if (!contactFormStatus) return;
   const isEs = document.documentElement.lang === 'es';
-  const statusKey = isEs ? `es.${key}` : key;
-  contactFormStatus.textContent = translations[statusKey] || '';
+  contactFormStatus.textContent = translations[isEs ? `es.${key}` : key] || '';
+}
+
+function updateMessageCounter() {
+  if (!messageInput || !messageCounter) return;
+  const isEs = document.documentElement.lang === 'es';
+
+  messageCounter.textContent = isEs
+    ? `${messageInput.value.length} / 2000 caracteres`
+    : `${messageInput.value.length} / 2000 characters`;
+}
+
+function validateAttachments() {
+  if (!attachmentInput || !attachmentStatus) return;
+
+  const files = Array.from(attachmentInput.files);
+  const isEs = document.documentElement.lang === 'es';
+
+  if (files.length === 0) {
+    attachmentStatus.textContent = '';
+    return;
+  }
+
+  if (files.length > 3) {
+    attachmentInput.value = '';
+    attachmentStatus.textContent = translations[isEs ? 'es.attachment.error.count' : 'attachment.error.count'];
+    return;
+  }
+
+  let totalSize = 0;
+
+  for (const file of files) {
+    totalSize += file.size;
+
+    if (file.size > 5 * 1024 * 1024) {
+      attachmentInput.value = '';
+      attachmentStatus.textContent = translations[isEs ? 'es.attachment.error.size' : 'attachment.error.size'];
+      return;
+    }
+
+    const extension = file.name.slice(file.name.lastIndexOf('.')).toLowerCase();
+
+    if (!allowedExtensions.includes(extension) || (file.type && !allowedMimes.includes(file.type))) {
+      attachmentInput.value = '';
+      attachmentStatus.textContent = translations[isEs ? 'es.attachment.error.type' : 'attachment.error.type'];
+      return;
+    }
+  }
+
+  if (totalSize > 10 * 1024 * 1024) {
+    attachmentInput.value = '';
+    attachmentStatus.textContent = translations[isEs ? 'es.attachment.error.totalSize' : 'attachment.error.totalSize'];
+    return;
+  }
+
+  const message = translations[isEs ? 'es.attachment.success' : 'attachment.success'];
+  attachmentStatus.textContent = message.replace('{count}', files.length);
+}
+
+if (messageInput) {
+  messageInput.addEventListener('input', updateMessageCounter);
+}
+
+if (attachmentInput) {
+  attachmentInput.addEventListener('change', validateAttachments);
 }
 
 if (contactForm) {
-  // Use client-side validation and prevent native submission so we can
-  // optionally send to Formspree when the endpoint is provided.
-  contactForm.setAttribute('novalidate', 'novalidate');
-
   contactForm.addEventListener('submit', (event) => {
+    if (!contactForm.checkValidity()) {
+      return;
+    }
+
     event.preventDefault();
 
-    // Honeypot handling: if filled, treat as spam and silently succeed
     const honeypot = contactForm.querySelector('input[name="website"]');
+
     if (honeypot && honeypot.value.trim() !== '') {
-      setContactStatus('contact.form.success');
       contactForm.reset();
-      return;
-    }
+      updateMessageCounter();
 
-    // Validate fields
-    if (!contactForm.checkValidity()) {
-      contactForm.reportValidity();
-      Array.from(contactForm.querySelectorAll('input, textarea')).forEach((field) => {
-        if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
-          if (!field.checkValidity()) field.classList.add('invalid');
-        }
-      });
-      return;
-    }
-
-    // Endpoint activation: if a Formspree endpoint is provided via
-    // `data-formspree-endpoint` on the form (or the form `action`), use it.
-    const endpoint = contactForm.dataset.formspreeEndpoint || contactForm.getAttribute('action') || '';
-    if (!endpoint) {
-      setContactStatus('contact.form.status');
-      return;
-    }
-
-    setContactStatus('contact.form.sending');
-
-    const formData = new FormData(contactForm);
-    fetch(endpoint, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' },
-    }).then((response) => {
-      if (response.ok) {
-        setContactStatus('contact.form.success');
-        contactForm.reset();
-      } else {
-        setContactStatus('contact.form.error');
+      if (attachmentStatus) {
+        attachmentStatus.textContent = '';
       }
-    }).catch(() => {
-      setContactStatus('contact.form.error');
-    });
+
+      return;
+    }
+
+    setContactStatus('contact.form.not_configured');
   });
 
   contactForm.addEventListener('input', (event) => {
     const field = event.target;
-    if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
-      if (field.checkValidity()) {
-        field.classList.remove('invalid');
-      }
+
+    if (
+      (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) &&
+      field.checkValidity()
+    ) {
+      field.classList.remove('invalid');
     }
   });
 }
