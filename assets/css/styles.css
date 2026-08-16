@@ -978,3 +978,34 @@ footer {
     scroll-behavior: auto;
   }
 }
+/* Final Connect layout correction */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.platform-card,
+.contact-card.contact-form {
+  min-width: 0;
+}
+
+@media (max-width: 1080px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+}
