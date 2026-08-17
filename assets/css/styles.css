@@ -973,11 +973,7 @@ footer {
 
 @media (min-width: 1100px) {
   .hero-inner {
-    transform: translateX(-80px);
-  }
-
-  .hero-title {
-    white-space: nowrap;
+    transform: translateX(80px);
   }
 }
 
