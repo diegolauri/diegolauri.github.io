@@ -886,7 +886,7 @@ footer {
   width: 100%;
   min-height: 52px;
   padding: 1rem 1.6rem;
-  font-size: 1rem;
+  font-size: 1.08rem;
   font-weight: 800;
   border-radius: 14px;
   border-width: 1px;
@@ -1017,7 +1017,10 @@ footer {
 .hero-inner {
   width: 100%;
   max-width: 1080px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
   justify-items: stretch;
   text-align: left;
 }
@@ -1036,7 +1039,7 @@ footer {
 
 .hero-copy {
   max-width: 1040px;
-  color: #eaf6ff;
+  color: #cfe4f5;
   font-size: clamp(1rem, 1.1vw, 1.22rem);
   line-height: 1.8;
   letter-spacing: 0;
