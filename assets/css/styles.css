@@ -1018,12 +1018,18 @@ footer {
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
-  justify-items: center;
-  text-align: center;
+  justify-items: stretch;
+  text-align: left;
+}
+
+.hero .eyebrow {
+  justify-self: start;
+  text-align: left;
 }
 
 .hero-title,
-.hero-copy {
+.hero-copy,
+.hero-actions {
   width: 100%;
   margin-inline: auto;
 }
@@ -1031,9 +1037,10 @@ footer {
 .hero-copy {
   max-width: 1040px;
   color: #eaf6ff;
-  font-size: clamp(1.18rem, 1.5vw, 1.52rem);
-  line-height: 1.65;
-  letter-spacing: -0.01em;
+  font-size: clamp(1rem, 1.1vw, 1.22rem);
+  line-height: 1.8;
+  letter-spacing: 0;
+  text-align: left;
 }
 
 .hero-copy strong {
@@ -1042,7 +1049,6 @@ footer {
 }
 
 .hero-actions {
-  width: 100%;
   max-width: 1080px;
   margin-top: 1.9rem;
 }
