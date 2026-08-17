@@ -1015,7 +1015,7 @@ footer {
 }
 /* Center hero content within the blue panel */
 .hero-inner {
-  width: min(100%, 1080px);
+  width: min(100%, 960px);
   margin-inline: auto;
   padding-inline: 0;
   justify-items: stretch;
