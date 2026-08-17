@@ -302,12 +302,16 @@ main {
 
 .hero-copy {
   margin: 0;
-  max-width: 840px;
-  color: #e9f6ff;
+  max-width: 1040px;
+  color: #d9eeff;
   font-size: clamp(1rem, 1.1vw, 1.22rem);
   line-height: 1.8;
 }
 
+.hero-copy strong {
+  color: #ffffff;
+  font-weight: 700;
+}
 .hero-actions {
   margin-top: 1.9rem;
 }
