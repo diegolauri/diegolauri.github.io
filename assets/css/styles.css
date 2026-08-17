@@ -1013,3 +1013,36 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* Center hero content within the blue panel */
+.hero-inner {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  justify-items: center;
+  text-align: center;
+}
+
+.hero-title,
+.hero-copy {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.hero-copy {
+  max-width: 1040px;
+  color: #eaf6ff;
+  font-size: clamp(1.18rem, 1.5vw, 1.52rem);
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+}
+
+.hero-copy strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.hero-actions {
+  width: 100%;
+  max-width: 1080px;
+  margin-top: 1.9rem;
+}
